@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "YouHub | BuggleGum Simulator Infinite",
+   Name = "YouHub",
    Icon = 0,
    LoadingTitle = "YouHub is loading...",
    LoadingSubtitle = "by Chosentechies",
@@ -29,106 +29,52 @@ local Window = Rayfield:CreateWindow({
 })
 
 -- Home Tab
+-- Home Tab
 local homeTab = Window:CreateTab("Home", 4483362458)
+
+-- Information about YouHub
 local Paragraph = homeTab:CreateParagraph({
-   Title = "YouHub | BuggleGum Simulator Infinite Functions",
+   Title = "YouHub Info",
    Content = [[
-- Auto Chew
-- Auto Chew Fast
-- Auto Sell
+YouHub is a hub for multiple game-related scripts and tools. It provides easy access to automation features and other useful functionalities for players looking to enhance their gameplay experience.
 
-Next Version Functions
-- Auto Open Chest
-- Auto buy Infinite Egg
-
-More functions coming soon!
+Features:
+- User-friendly interface.
+- Supports multiple games.
+- Customizable options to suit your needs.
+- Regular updates and new features.
 ]]
 })
 
--- Auto Farm Tab
-local autofarmTab = Window:CreateTab("Auto Farm", 4483362458)
-
--- Auto Chew Toggle
-autofarmTab:CreateToggle({
-    Name = "Auto Chew",
-    CurrentValue = false,
-    Flag = "AutoChewToggle",
-    Callback = function(Value)
-        if Value then
-            -- Loop for Auto Chew
-            task.spawn(function()
-                while true do
-                    task.wait(1)
-                    local args = {
-                        "BlowBubble"
-                    }
-                    game:GetService("ReplicatedStorage")
-                        :WaitForChild("Shared")
-                        :WaitForChild("Framework")
-                        :WaitForChild("Network")
-                        :WaitForChild("Remote")
-                        :WaitForChild("Event"):FireServer(unpack(args))
-                end
-            end)
-        end
-    end,
+-- Supported games list
+local Paragraph = homeTab:CreateParagraph({
+   Title = "YouHub Supported Games",
+   Content = [[
+- BGSI (BuggleGum Simulator Infinite) = Up to Date
+- Additional games coming soon!
+]]
 })
 
--- Auto Chew Fast Toggle
-autofarmTab:CreateToggle({
-    Name = "Auto Chew Fast",
-    CurrentValue = false,
-    Flag = "AutoChewFastToggle",
-    Callback = function(Value)
-        if Value then
-            -- Loop for Auto Chew Fast
-            task.spawn(function()
-                while true do
-                    task.wait(0.1)
-                    local args = {
-                        "BlowBubble"
-                    }
-                    game:GetService("ReplicatedStorage")
-                        :WaitForChild("Shared")
-                        :WaitForChild("Framework")
-                        :WaitForChild("Network")
-                        :WaitForChild("Remote")
-                        :WaitForChild("Event"):FireServer(unpack(args))
-                end
-            end)
-        end
-    end,
+-- Adding additional information if needed
+local additionalInfo = homeTab:CreateParagraph({
+   Title = "More Info",
+   Content = [[
+For more details about YouHub and its features, please visit our official documentation or join our community.
+]]
 })
 
--- Auto Sell Toggle
-autofarmTab:CreateToggle({
-    Name = "Auto sell",
-    CurrentValue = false,
-    Flag = "AutoSellToggle",
-    Callback = function(Value)
-        if Value then
-            -- Loop for auto sell
-            task.spawn(function()
-                while true do
-                    task.wait(1)
-                    local args = {
-                        "SellBubble"
-                    }
-                    game:GetService("ReplicatedStorage")
-                        :WaitForChild("Shared")
-                        :WaitForChild("Framework")
-                        :WaitForChild("Network")
-                        :WaitForChild("Remote")
-                        :WaitForChild("Event"):FireServer(unpack(args))
-                end
-            end)
-        end
-    end,
-})
 
--- teleport Tab
-local teleportTab = Window:CreateTab("Teleport", 4483362458)
-local Label = teleportTab:CreateLabel("Teleport Coming Soon", 4483362458, Color3.fromRGB(0, 0, 0), false) -- Title, Icon, Color, IgnoreTheme
+-- Scripts Tab
+local scriptsTab = Window:CreateTab("Scripts", 4483362458)
+
+-- Button to execute the script
+local Button = scriptsTab:CreateButton({
+   Name = "Execute Main Script",
+   Callback = function()
+      -- Execute the script from the provided URL
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/urmoit/YouHub/refs/heads/main/main%20uncrrypted.lua"))()
+   end,
+})
 
 -- Credit Tab
 local creditTab = Window:CreateTab("credit", 4483362458)
