@@ -35,7 +35,7 @@ local Paragraph = homeTab:CreateParagraph({
    Content = [[
 - Auto Chew
 - Auto Chew Fast
-- Auto Sell 2x Prize
+- Auto Sell
 
 Next Version Functions
 - Auto Open Chest
@@ -100,11 +100,11 @@ autofarmTab:CreateToggle({
     end,
 })
 
--- Auto Sell 2x Prize Toggle
+-- Auto Sell Toggle
 autofarmTab:CreateToggle({
-    Name = "Auto sell 2x prize",
+    Name = "Auto sell",
     CurrentValue = false,
-    Flag = "AutoSell2xToggle",
+    Flag = "AutoSellToggle",
     Callback = function(Value)
         if Value then
             -- Loop for auto sell
