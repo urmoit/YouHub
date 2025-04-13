@@ -132,3 +132,26 @@ local Label = teleportTab:CreateLabel("Teleport Coming Soon", 4483362458, Color3
 
 -- Credit Tab
 local creditTab = Window:CreateTab("credit", 4483362458)
+
+-- Create a paragraph for the credit information
+local creditParagraph = creditTab:CreateParagraph({
+    Title = "Credits",
+    Content = [[
+Special Thanks to:
+
+- Chosentechies for creating YouHub.
+- Sirius for the Rayfield UI Library.
+- The developers of BuggleGum Simulator for the game.
+- Community members for support and feedback.
+]]
+})
+
+-- Optionally, you can also add more specific credits or mention contributors
+local additionalCredits = creditTab:CreateParagraph({
+    Title = "Additional Credits",
+    Content = [[
+- Script contributors.
+- Beta testers for providing feedback.
+- Everyone involved in the development and testing process.
+]]
+})
