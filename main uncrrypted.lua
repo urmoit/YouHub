@@ -155,3 +155,12 @@ local additionalCredits = creditTab:CreateParagraph({
 - Everyone involved in the development and testing process.
 ]]
 })
+
+-- Button to copy the Rayfield documentation link
+local Button = creditTab:CreateButton({
+   Name = "Copy Rayfield Docs Link",
+   Callback = function()
+      -- Copy Rayfield docs link to clipboard
+      setclipboard("https://docs.sirius.menu/rayfield")
+   end,
+})
