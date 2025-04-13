@@ -124,7 +124,7 @@ autofarmTab:CreateToggle({
 
 -- teleport Tab
 local teleportTab = Window:CreateTab("Teleport", 4483362458)
-local Label = teleportTab:CreateLabel("Teleport Coming Soon", 4483362458, Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
+local Label = teleportTab:CreateLabel("Teleport Coming Soon", 4483362458, Color3.fromRGB(0, 0, 0), false) -- Title, Icon, Color, IgnoreTheme
 
 -- Credit Tab
 local creditTab = Window:CreateTab("credit", 4483362458)
