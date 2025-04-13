@@ -37,6 +37,10 @@ local Paragraph = homeTab:CreateParagraph({
 - Auto Chew Fast
 - Auto Sell 2x Prize
 
+Next Version Functions
+- Auto Open Chest
+- Auto buy Infinite Egg
+
 More functions coming soon!
 ]]
 })
