@@ -72,7 +72,7 @@ local Button = scriptsTab:CreateButton({
    Name = "Execute Main Script",
    Callback = function()
       -- Execute the script from the provided URL
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/urmoit/YouHub/refs/heads/main/main%20uncrrypted.lua"))()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/urmoit/YouHub/refs/heads/main/Games/bgsi.lua"))()
    end,
 })
 
