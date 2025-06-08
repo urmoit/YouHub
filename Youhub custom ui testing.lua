@@ -1,165 +1,181 @@
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
 
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.ResetOnSpawn = false
-ScreenGui.Name = "YouHubUI"
-ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+-- Create ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "ModernGUI"
+screenGui.ResetOnSpawn = false
+screenGui.IgnoreGuiInset = true
+screenGui.Parent = playerGui
 
--- Drag Function (Supports Mouse and Touch)
-local function makeDraggable(frame)
-	local dragToggle, dragInput, dragStart, startPos
+-- Main frame (window)
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 250, 0, 400)
+mainFrame.Position = UDim2.new(0.5, -125, 0.5, -200)
+mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+mainFrame.BorderSizePixel = 0
+mainFrame.ClipsDescendants = true
+mainFrame.Parent = screenGui
 
-	local function update(input)
+-- Draggable support (Mobile + PC)
+local dragInput, dragStart, startPos
+local dragging = false
+
+local function updateInput(input)
+	if dragging and input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 		local delta = input.Position - dragStart
-		frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		mainFrame.Position = UDim2.new(
+			mainFrame.Position.X.Scale,
+			startPos.X.Offset + delta.X,
+			mainFrame.Position.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
 	end
-
-	frame.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragToggle = true
-			dragStart = input.Position
-			startPos = frame.Position
-
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragToggle = false
-				end
-			end)
-		end
-	end)
-
-	frame.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			dragInput = input
-		end
-	end)
-
-	game:GetService("UserInputService").InputChanged:Connect(function(input)
-		if input == dragInput and dragToggle then
-			update(input)
-		end
-	end)
 end
 
--- Core UI Structure
-local TopBar = Instance.new("Frame")
-TopBar.Size = UDim2.new(0, 600, 0, 50)
-TopBar.Position = UDim2.new(0.5, -300, 0.1, 0)
-TopBar.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-TopBar.Parent = ScreenGui
-TopBar.Active = true
-TopBar.Draggable = false
-makeDraggable(TopBar)
-
-local TitleLabel = Instance.new("TextLabel")
-TitleLabel.Size = UDim2.new(1, 0, 1, 0)
-TitleLabel.BackgroundTransparency = 1
-TitleLabel.Text = "YouHub | Pet Simulator 99!"
-TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TitleLabel.Font = Enum.Font.SourceSansBold
-TitleLabel.TextSize = 22
-TitleLabel.Parent = TopBar
-
-local Sidebar = Instance.new("Frame")
-Sidebar.Size = UDim2.new(0, 150, 1, -50)
-Sidebar.Position = UDim2.new(0, 0, 0, 50)
-Sidebar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-Sidebar.Parent = TopBar
-
-local MainContent = Instance.new("Frame")
-MainContent.Size = UDim2.new(1, -150, 1, -100)
-MainContent.Position = UDim2.new(0, 150, 0, 50)
-MainContent.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-MainContent.Parent = TopBar
-
-local BottomBar = Instance.new("Frame")
-BottomBar.Size = UDim2.new(1, 0, 0, 50)
-BottomBar.Position = UDim2.new(0, 0, 1, -50)
-BottomBar.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-BottomBar.Parent = TopBar
-
-local WelcomeLabel = Instance.new("TextLabel")
-WelcomeLabel.Size = UDim2.new(1, 0, 1, 0)
-WelcomeLabel.BackgroundTransparency = 1
-WelcomeLabel.Text = "Welcome, " .. LocalPlayer.Name
-WelcomeLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-WelcomeLabel.Font = Enum.Font.SourceSans
-WelcomeLabel.TextSize = 20
-WelcomeLabel.Parent = BottomBar
-
--- Reusable UI Components
-local function createButton(name, parent, pos, text)
-	local button = Instance.new("TextButton")
-	button.Name = name
-	button.Size = UDim2.new(1, -10, 0, 40)
-	button.Position = pos
-	button.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-	button.Text = text or name
-	button.TextColor3 = Color3.fromRGB(255, 255, 255)
-	button.Font = Enum.Font.SourceSans
-	button.TextSize = 20
-	button.Parent = parent
-	local corner = Instance.new("UICorner", button)
-	corner.CornerRadius = UDim.new(0, 6)
-	return button
-end
-
-local function createLabel(name, parent, pos, text)
-	local label = Instance.new("TextLabel")
-	label.Name = name
-	label.Size = UDim2.new(1, -10, 0, 30)
-	label.Position = pos
-	label.BackgroundTransparency = 1
-	label.Text = text
-	label.TextColor3 = Color3.fromRGB(255, 255, 255)
-	label.Font = Enum.Font.SourceSansBold
-	label.TextSize = 22
-	label.TextXAlignment = Enum.TextXAlignment.Left
-	label.Parent = parent
-	return label
-end
-
-local function createParagraph(name, parent, pos, text)
-	local paragraph = Instance.new("TextLabel")
-	paragraph.Name = name
-	paragraph.Size = UDim2.new(1, -10, 0, 60)
-	paragraph.Position = pos
-	paragraph.BackgroundTransparency = 1
-	paragraph.Text = text
-	paragraph.TextColor3 = Color3.fromRGB(255, 255, 255)
-	paragraph.Font = Enum.Font.SourceSans
-	paragraph.TextSize = 18
-	paragraph.TextWrapped = true
-	paragraph.TextXAlignment = Enum.TextXAlignment.Left
-	paragraph.TextYAlignment = Enum.TextYAlignment.Top
-	paragraph.Parent = parent
-	return paragraph
-end
-
--- Sidebar Buttons
-local buttonNames = {
-	"Home", "Event", "Webhook", "Optimization",
-	"Auto Farm", "Egg", "Quest", "Mailbox", "Main", "Auto"
-}
-
-for i, name in ipairs(buttonNames) do
-	createButton(name, Sidebar, UDim2.new(0, 5, 0, 5 + (i - 1) * 45), name)
-end
-
--- Main Content
-createLabel("CreditsTitle", MainContent, UDim2.new(0, 5, 0, 10), "Credits")
-createParagraph("CreditsParagraph", MainContent, UDim2.new(0, 5, 0, 45), "YouHub is made by Chosentechies, the owner of YouHub. Thanks for using this custom GUI!")
-
-local discordBtn = createButton("DiscordButton", MainContent, UDim2.new(0, 5, 0, 120), "Copy Discord Server Invite")
-discordBtn.MouseButton1Click:Connect(function()
-	setclipboard("https://discord.gg/youhub") -- change if needed
+mainFrame.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = mainFrame.Position
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
 end)
 
-createLabel("PremiumLabel", MainContent, UDim2.new(0, 5, 0, 170), "YouHub Premium")
-createParagraph("PremiumParagraph", MainContent, UDim2.new(0, 5, 0, 205), "Premium offers a keyless version of YouHub with OP features.")
+mainFrame.InputChanged:Connect(updateInput)
+game:GetService("UserInputService").InputChanged:Connect(updateInput)
 
-local shopBtn = createButton("PremiumShop", MainContent, UDim2.new(0, 5, 0, 280), "Copy Premium Shop Link")
-shopBtn.MouseButton1Click:Connect(function()
-	setclipboard("https://shop.youhub.xyz") -- change if needed
+-- Header
+local header = Instance.new("Frame")
+header.Size = UDim2.new(1, 0, 0, 40)
+header.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+header.Parent = mainFrame
+
+-- Header Gradient
+local headerGradient = Instance.new("UIGradient")
+headerGradient.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(25, 25, 25)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(60, 60, 60))
+}
+headerGradient.Parent = header
+
+-- Header label
+local headerLabel = Instance.new("TextLabel")
+headerLabel.Text = "Youhub UI Test"
+headerLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+headerLabel.BackgroundTransparency = 1
+headerLabel.Font = Enum.Font.GothamBold
+headerLabel.TextSize = 20
+headerLabel.Size = UDim2.new(1, -40, 1, 0)
+headerLabel.TextXAlignment = Enum.TextXAlignment.Left
+headerLabel.Position = UDim2.new(0, 10, 0, 0)
+headerLabel.Parent = header
+
+-- Collapse Arrow button
+local collapseArrow = Instance.new("TextButton")
+collapseArrow.Size = UDim2.new(0, 30, 0, 30)
+collapseArrow.Position = UDim2.new(1, -35, 0, 5)
+collapseArrow.Text = "▼"
+collapseArrow.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+collapseArrow.TextColor3 = Color3.fromRGB(255, 255, 255)
+collapseArrow.Font = Enum.Font.GothamBold
+collapseArrow.TextSize = 20
+collapseArrow.Parent = header
+collapseArrow.AutoButtonColor = false
+
+-- Scrollable content frame
+local scrollFrame = Instance.new("ScrollingFrame")
+scrollFrame.Size = UDim2.new(1, -10, 1, -50)
+scrollFrame.Position = UDim2.new(0, 5, 0, 45)
+scrollFrame.BackgroundTransparency = 1
+scrollFrame.BorderSizePixel = 0
+scrollFrame.ScrollBarThickness = 6
+scrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+scrollFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+scrollFrame.Parent = mainFrame
+scrollFrame.Visible = true
+
+-- Layout inside scrollFrame
+local contentLayout = Instance.new("UIListLayout")
+contentLayout.Padding = UDim.new(0, 10)
+contentLayout.SortOrder = Enum.SortOrder.LayoutOrder
+contentLayout.Parent = scrollFrame
+
+-- Auto update scroll height
+scrollFrame.ChildAdded:Connect(function()
+	task.wait()
+	scrollFrame.CanvasSize = UDim2.new(0, 0, 0, contentLayout.AbsoluteContentSize.Y)
+end)
+
+-- Example toggles
+for i = 1, 5 do
+	local cb = Instance.new("TextButton")
+	cb.Size = UDim2.new(1, 0, 0, 40)
+	cb.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+	cb.TextColor3 = Color3.fromRGB(255, 255, 255)
+	cb.Font = Enum.Font.Gotham
+	cb.TextSize = 18
+	cb.AutoButtonColor = false
+	cb.Text = "Toggle Option " .. i
+	cb.Parent = scrollFrame
+
+	local toggled = false
+	cb.MouseButton1Click:Connect(function()
+		toggled = not toggled
+		cb.BackgroundColor3 = toggled and Color3.fromRGB(70, 120, 70) or Color3.fromRGB(50, 50, 50)
+		cb.Text = toggled and ("Toggle Option " .. i .. " ✔") or ("Toggle Option " .. i)
+	end)
+end
+
+-- Collapse animation logic
+local tweenService = game:GetService("TweenService")
+local collapsed = false
+
+collapseArrow.MouseButton1Click:Connect(function()
+	collapsed = not collapsed
+	collapseArrow.Text = collapsed and "▲" or "▼"
+
+	local newHeight = collapsed and 40 or 400
+	tweenService:Create(mainFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
+		Size = UDim2.new(0, 250, 0, newHeight)
+	}):Play()
+
+	scrollFrame.Visible = not collapsed
+end)
+
+-- Show GUI button if collapsed
+local toggleButton = Instance.new("TextButton")
+toggleButton.Size = UDim2.new(0, 160, 0, 40)
+toggleButton.Position = UDim2.new(0, 20, 0, 20)
+toggleButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+toggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+toggleButton.Font = Enum.Font.GothamBold
+toggleButton.TextSize = 18
+toggleButton.Text = "Show GUI"
+toggleButton.Parent = playerGui
+toggleButton.Visible = false
+toggleButton.AutoButtonColor = false
+
+toggleButton.MouseEnter:Connect(function()
+	toggleButton.BackgroundColor3 = Color3.fromRGB(75, 75, 75)
+end)
+toggleButton.MouseLeave:Connect(function()
+	toggleButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+end)
+
+toggleButton.MouseButton1Click:Connect(function()
+	screenGui.Enabled = true
+	toggleButton.Visible = false
+end)
+
+-- Fully close GUI
+header.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton2 then
+		screenGui.Enabled = false
+		toggleButton.Visible = true
+	end
 end)
