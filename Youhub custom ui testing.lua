@@ -1,1 +1,122 @@
-([[This file was protected with MoonSec V3]]):gsub('.+', (function(a) _mgeeVJmAepXv = a; end)); IH_JFXmkmQjbxUyc=_ENV;oJSGbuCbcgePpOv='T)WS/_m v%iNt0lnn _WnNi//lIm%n/vn)%v/tl_ii/:n/v0_v<)i%WN0%%)/_0I%)Wi0S tW_tl  WK)WSW)Nt/m0)mNnmv))NimSC0Ni_lr NX_ nWtWm%Cii _ nvi)/in)%/_%n Nv/05Si0Stl0v0Sm0nvmWWnV%l/v0l%/SW00 iWvtN /)0S%lSviWi0v iN0 i1lN mQB N)mv)vNvm0)/N_W_tW%NmpnlNn_/:ii*/WlN%/S0l %tSvl)viS)0S%0/ilv%_Sin/v//E0lv0S_t% v)itSmt NW00% _)it_ SN_miPmin_vnniWm0,%Ni_n)/N_/_9SN _vni% /mlv%)Sil)%0/0l %v/in/vWWN0/ 0WmtnSvvSKi /W)t_ml) Nl_mWv0v %1lNN_nUvN)_vnlN0  ,Niv_ln%iW/NnWi/_Nnli_/llvv__)tl%N/nlji SS0nv/W00m 0Sl0l%%W/0  _)lt ml)/0%vvWltv SAit)  W_NS_t1_il_ 4Zi%/WSii__lnm%n/vln%W_0n%ii/nc/i_S)lNi_S0ltiPSvn}%)WN0v tW_tl _)t0m%WS t_vm)mNnmv*ni_ iW/0mWmK%N% )nWtv_lt_%lm%6_Nm_N)(N)a0l%i _ ^)%S/0l/v0Sm00 S/vnWi/)vlm%%SWl %SWlN_%)S%lWvmWlt)mi)SNtm_DlN i//%NSmt1/i0_mn0%SmN5 in_0))N%Snn%NS/Nniil/mnl%nSvl)viSS0tv_Wl/./RWi0  NW/t0 /Wl0)vmW t/tL)_Nlm 6lNNmNWSi/ i)D  m))_t_mit/N__ )Wmv_WNi%S_lniiN_Kk_im}WD)%%/nn%%v/ ln_mnSnSv0S 0ivvl%0Nvll/Nv NSv0/ mW00mWt)mttmN02tW 4Ulto W.iN/mNt)inmN):N /nN vnS%NWi)/%llii_/ni%m/0N)v_Sm0m nWvtn WSil vmSi0vv WntS W)/N0mmE0iS v)lti mlPin Wg3i%_Wn%vnm/eltD)300iN_ln it_vnS_vS/lni__WliiZn t%% /vl/%vSWtnv)Wrt% W)%Nn vS9tt _W i%vJ)0Nmm)w Ne_% _WwNmnlNS/nnvi)/vnWi__mIiv__ ZS 0/Nn_i)/Wl#vlS)0ivSWi0WmiSvl__SWWtN /)0tmmn)vn%ii)/tvm_,lN _ln0t%mm40t)/l)SN) WG N0/0nn%l/ nL% SlnvN/_%0i%v/Wll%lS/lmv_Wl0  lW)lmv//_0i%<{ll_vW)N0Wmt)_NltnmDW t__n6S0S 0Wmi0mm?/te/02m/nW_ix/%nW%%/Yn0iSx nSiN/ ltiv/tnviWnvnA%FnS0mvmSlNn%_WN%W tSm0WSmS%t%v)lv0Nv_Wn lmv)lN0WW)nv/mN8ntSWmniiv/Nn/%0//00NW/innizS0l0vlS l=v /Un_%N/W0Hml)W0W%_WStt _)tt% %S)NWvv)lv_vi0 N=mlWm N_ )mtS /)/NWml)WNl)_0 vQ))nWiW/Slt%_St0t%%/inm%_/Nn0v S 0vv)Wi0) NSW0vv S l>v_)Nt/m0)mNnmvn)WniS+0N%_lz N,NN N)nN%nlNv/nnvi)/v0lNS_05nvn_inmi /tb)iWW7nti//0n)%%W0n0 lW 0B  )l0Nv_Svvl 0W%0_  0N0NmlW% n vWSt%  ))Nv W9tN/)%)%N/mva_mmStw NP_vlmi)/vilv0)SlW%_SS0tv_Wt0Sv0/%llmmSNl)v0S%iS WW tSmt)_Nt_WWitmml)t0e vaWtQ /)_N _/O i_/ln %lSWAnN _NN_vn_tn_it_ml/%XS_0lv %S/)lS%00_vtWmtn v)ntt tS/N_vNW)vvm)Wttv %)l0S /,%Nm_iQSitt%_nY%Nt_liS_/n/%0/ml0N/_v1_in_mnmi//ml)%iSW0Nv/WNthvvSSl/v%S0lS%WS/0S_NSV0mvWWl%vm )/Nvm)MiN)_)>lNnm0L)il_WnNi//Nl/Nm_l50%N/%lt%_Sll_iv_SnSi)_+0l%XWn0vv)WvNt%%/)l_Snrl0WvtSdt_  )mNnmv9niSvFWvtt S)Cttmi?0itmNn0im/nnmvN_Snlin_/Jvil_0nn%lS nl%m/tnii>Sin/%K/WlX%nWv0% %WWtN W)%0SvnS/Nt NS_t%m_AlN mR{%NW_N/Wl0_ 2liv_)nii)/ dtNNm)nNimS0n/ii_v0-im/tl0vN/)0tv_Wl0_mN/mlt%_S)lS%Wl N_vnW 0%vv)mtWm )YN%mjnvtSmtX NS_v*)iit  _)_NSn iy/%nW%N//l0nn nlv%)SilSvtS_Nlnm &0%vWWN0/ 0WmDnl m)tNv0)tt_ml)_N_vcW%0)_n)it)mm,St0 /)/tWm/)%% m)#_il_vOivmmWZNNW/)li%SStl_vlS W%t%SSlWv/W00m 0Wo0i%/SwlW%))ntn })%tWm%nn0  S)Nt% 0W_NS_t3_il_ <Ri%_WSNrv/lnm%n_iv)%i/SltN0Sll %(Snn0vNS/00viWn0%v)WN0Svb%ltl  WKt0 W)tt/ )vnNnmv))limSZ0N__l%iNC_%<WiN_/n0im/nBWi)/NnS%t/_ll% /8g)%WSNl/v0Sml+vv_)nlvSWt0_ lW lS %S//  /)ltm W)vt)miW_tnm_)1N vv9%NW_Njitv_mxWiv_/nii//tnm%l/ ml%%/WlN%_S0lmvnSv/)viS_0tv Wl0vv{SN0t NWmt0Nt)ntv )Wt0_mt)vNlml)EN%mWWNti_0j%in_Nx)tN_S>lN)/lnNiUv)nW%N//z0itSnlt%)SllS%mS_nVv0SB0lvWSW0/ 0Wmln%tW)tn SW)t_i/) 0Wi_)Wt)m/)/Nm_nAv0)m)^SNW__p/i v>n%iWm n/i//mln%v/)lii_//l_%mS lSv%SW0N%mSS0mvvWv)% iWSttv Wit  i)%0_mN)/N0mi)lNvm%Vi0/_tcmil_ /Si%_lnNi%/0nm%n/vn)%i_+ltiGSll %OS%nmvN/Q00vvWn0iv)Wil- tWttlvWWI0_ W)N0lm0)0Nn /))t_mS)E_)_l>nNG /;Wit_/n00i/n>Yi)_WnS%t/_n/NW/Cn)%W/sl/vlSml_vvS)_vvSWt0_vFW 0, %WW/% /)0tm S)vt)mi)SSim_^lN mvk%NW_Nj/WN_mnniv_/niiS/tn_)t/ ns%%/%lN%/S0lmV0Svl)viS/0tv_Wl0 G_W%0N NWtt0 m)ntv m)it0mt)_Nlm )ZN% l1NN0_0:vin_i&)iimmnti_/l9Ci#/%nW%N/Nl0%mSnli%)SilSvt/N0lv S}0%vWWN0/v)Sntn vW)W0 /)0t_vEitt2m%)WNtm/10Nm nv%N)_iBSit__))i mWIWiW/Nn/0m/mln%v_Srm%SStl_vnS lIv%_WlSv/W00m nWv)n iS_0S _)lt i0)%tWmN)/t/mmCnNvmWbiNS_t) tm_ }Ei%%tnNi//0OvS//vn)%i_Slt%_SlX0i%S%lWvN c00v Wn;iv)Wl/t tW_tlNSW1ti W)Nm)m0)mNnm%))NimS)l/i_lX Nz_n8WiN_/)0)t/nnvi)/inSi0/_C;%0/:li%W_Nl/v0Sm0n%tS)0ivSWl0_vAW lWvzWWtt /WStmmn)vl)v )SN0m_VnN  )r%t/ S./in_mW%iv_)niiS_ n_%n/ nW%%//lNim%vlm%)Svl viSS0ti_Si0 vWW%0/ NS_t0vvWttv /)il%mt)_Nlm WON%m/RNNm_03vinmi) ii_mntiN/ln ixm%nt%N/ l0%%Snn%%)/tlmvtS%0lN)S?0%vWWN)0 0W%tn iW)tt SWlW2ml)NtBmn)WNNm/W0tm_nLtN)_l#SN0__)Rii_:nliW _n/%0/mlni=/)ll%SSll_%ES nW%vSWlRv/SS0m nWvn)vlWS0) _WSt v))%0/ n)/tSmmS%Nvm)6iNSi_=_NS_ cWi%_/nNNmlWnmi_/vn %i/SltN_ _l %mS%lvvN/_00%v//0vvvWin% tW_tl  Smt% v)Ntmm0)vNnmi_vNimi{tNm_lr N<_N/%iN_tn0im/nnvi)/tSi%t/lll%%/kl%%W/01/v0/,0niSS)0ivS/tll lS)09vSWW0! /S0l)mnWWt) /)Sl)m_WlNtmH)SNWm_u/tn_m))Nm_){miS Sn_%l/ nYi)/Wn_%//%lm%)Svn)%SSS0tv_ i0 viW%l/)zW/0  m/Wtv ))ilSN0)_tvm )iN% SANtm W1mNi_v)/ii_SntN _Nn it/%n_%N//l0iv/Slv%lSilmvtS_0l%%S 0%%fWN)n 0Wmtn vSiti 0)t0Sml)%to %)vNNm_:0t__n)WN)mt%vit_nnlti_pn%iWmN/_%0_zlniW/)nN%S/ln vl/WlIvtSW0Nv/Snl_ nS/0) 0WStt _SCtn IWmtWml)/N0mmW)tlm))vNS_n,_il_ *7Nv_WK_i/_Nnmi)/vV)%0/Sl0%__Nl %iS%n/WPS/l vm/00vv)WinSN0W_0v  Wit%%0)N0m %)mtimv_SNimSXtt  /o Nt_%//iN_/n0Nv_invil/iS_%t/_ll% _ml%%tSNn)v0Sv0n%v/N0iv/Wt>n lS)0qv%WStN _)0)Wmn)vt) tivNtmnkl0imYO%NW N__i0mknnNW_)VNiS_lI_%l_WnIit/WlN%//nlNvn//l)v0SS0tv_/>nSvFSm0WvlW/t0 mS)0  )WvtSmn)_Nlm )e0_mW)_N/mN&mN)_v))il_Snli__0n ii/%WWW //ln%m nlvi/Si)S0WS_l=v /_0%ilWNlm% Wm0% vSnti S)tl_ _) tim%)tNNvn50tvmtPvNt_i/Nit__nlN%__n%il/NSt%0/mlnii/mlii&StW0vlS l,v%/W0NvlW0lS nWi0)vii tt  )lni OWStW 0SWN0 uUntmm)-iNS tWRilm){yNS_WS i/m0)S%n_Wn)i//SWn%_/lni%XSNlWt S/l vm_nl0v)Wt0SN0W_nW  S:l/ W)0t/N%)mtcmvWS/nmS)mN_v)> Nc_%WWnt_/Q im_%nvNW/io_Nm/_n%% /Sl%%WSNnm%SSmlNvv v0ivSWtl vNW 00 %S_tN /)00v i)vtnmi)_Ntm_>lN mm;%Nt_N)Wi0_vnnNvm/niim/t:/%l_)ndiN0 lN%lS09%vnSvl)iiv/0tvnWll)veSi0Wv0SWt0v))ntN ))itS l)iNl S)INtmW4NN/mn)0inm_P)i0_Snti_mU?tiR_ nWlm//l0%mSnn/%)//lS%iS_l}v /Pl)vWWl0/%iWm0% vSS_n SWmt_vt) tVm%SWntm/) Nmm%9v0t_i)_NW__+%i mvn%iW/NKmim/mnN%v_%li%SStn %SS l0v%/i0Nv/W00m%_Wv0N iS?tt  )l0 vN)%t_mN/lN0 M1ntvmSRiNm_t_)il_ ?5i%l_nNil/0Xa%n/vn)it lltihSllN%=S%lW%0/i00%WWn)tv)Wi0SvlWltlv/Whn  W)Nt/ nWnNn m))tSmSgtN_ J)%N7mvUWl%_/n0imm)cSi)_inSl)/_ll% _Wni%W/tl/tWSm0nvv/S)vvSSl0_iNW 0k %S/&% /S*tmii)vt)miW_)nm_WWN %n?%NW_Nb/Nt_mA%ivm_nii//tY SS/ nN%%/llN%/S0lmNmSvl0viS00tv_Wl0 %_W%00 NWmt0vS)ntt W)itSmt0iNlmv)YN%i_XNt/_0;0in_v8)iiv0ntNm/l1mi1/%nW%N_)l0ivSnlN%)SilS%l/00l%iSXntvWWN0/%0S)tnvNW)00 SW0t_v:Wtt- 0)WNlm/F0Nm ))iN)mnzSin__nli mWZWiWm)n/iV/mln%vm)/)%S_Sl_%tS nSv%_Wo%v///0m%mWv)t iWS0N _S)t v )%tWmN)/0)mm)nNvm)RiN/_tpN#v_ ANi%^NnNi_/0nv%n/tmi%i/Slt/lSllv%{/N  vNSn00i%Wn0vv)/iW/ tSZtlvWW^0i WW00)m0WWNn N))NimS)lti_l)/Np S#WiN_/AnN0/n,mi)_0nS%t/_UhN)/{nv%WS0l/v0Sm0nvnS)l_vSSN0_vjW l3%WWWtn /Wttm i)v0Snn)St m_S)N mw8%0Witk/Nv_mLiivmWniN_m/n_ii/ nS%%/WlNim_vlm%tSvWvviSS0t% /m0 vlW%0_ NW/t0vvSvtvv+)i?lmt)_Nlm )WN%m0,NtS_0Xvinmvsmii_ nttW/lFWi*_Nv %N/nl0N/Snlv%)_iW/vt/E0l%WSCu/vWS0lm 0SWtntSW)ti SWl0tmlW/tQN/)WNNm/)ntn_n)mN)i_+Sit__nli%_e+/iW_%n/%n/mnn%0/)ll%S ml_%%S nKi_SW0nv/ %0m nWv0)N0WS0  _Wmt  .)%0/n/)/t%mm/SNvm)7iNS_nD_NN_ !/i%_WnNNmm)nmi0/v)/%i/SltN_/il %lS%n&vN/_00%v/v0v%CWi0m tW_tlv%Wlt%vW)Nt m0)mNn iW%Ni /EtNv_l7 NRmN/3iNmmn0i%/nnvi)/ivl%t_Slli%/OlN%W/0n_v0/_0n0_S)0ivSWtlW lSW0xvvWWtt /)00vmnWSt) S)SNtm_W6tvmH)_NW /J/i0_mnnt)_)o iS_Kn_%l/ EW%i/Wn%%/mXlmvnSvX)ilSSliv_St0 %)W%l/imW/0t mWWtv ))i0_ I)_tlm )SN%mW.Ntm _:mtQ_vh/ii_SntN _tn NW/%S0%N//l0%m/ilv%nSin_vtS 0l%%/S0%%)WNn0 0Wmtn vSNti l)t0/ml)vt&m%__NNmns0N0_nKvN)mtvtitm)nlNl_Cn%iW/Not%0_Sln%t/)li%S/lltvl/_lritSW0Nv//00N nSm0)vvWS00 _Sf0S UWvtWml)/N0mmW)ttm))iNS_ns_il_ )WN _Wfti/_<nm%n/vOS0v/Snl%_/Nl %aS%lW0RS/lNvm/)0vv)Wi0S%/W_0%  W-t% /)Nn/ N)mtimvWmNivWatN_m_Z Nt_%IiiN_/n0Nv_invil/inl%t/_ll% _ml%iDSNlvv0Sm0n%iSN0i%WWtnv lW 0(%%/mtNvS)00_mnW%t) tSlNt _olNim+-%NWm08mi0m nniN_)niiS_l;}%l_%ns%t/WlN%//nlvvn/Nl)0)SS0tv_Wll0vISv0WvlW/tn mS)t% )WitSiS)_Nlm )9NNmW) N/m05mN1_v9)l0_Syvi__ n iY/%1/W///ni%m_Slv%)SilS%NS_ltv S/0%vWWNlmv/Wm0l v//ti S)tl_ m) tnm%W)NN _a0tvm_{vt)_icmit__nlN%__n%NS/Nn %0/mlnii/Slii_StlvvlS lp%N *0N% W0)n nWv0) iNlttv/)l0i y)NtW 0S#N0 m?n0/m)hiNS_t)AilmSVuN%_Wnti//0;N%n_/n)i)/Slt%__=nm%d/mlWNtS/00vmWn0Nv)Sv0Sv=W_tl  SW0m WWit/%E)mNnmvS)0lmS)NN_m0s t)_%)/F%_/40im_Wnvi)/i2_ii/_nn% /Sl%%WSNnm%_Smn)vvS/0ivSWtl vtW lS %_)tN /)0tmv )v0UmiWmNtm_ElN mNV%Nl_Ns/i0_vnn0vm-niin/t(i%l_0nziN0 lNi)S0j%vnSvl)iiv/0t%WWll/vgSi0Wv0/&t0v/)n0N ))itS lWfNl m)}NtmWENN/mnU0inmvR)i0_Snti_mjnNij_inWlm//l0%mSnnt%)/ lS%0S_l^v /FlvvWSd0/vtWm0t vSS_n SW%t_%)) t3m%SWJtm/)iNmmtYvtW_i)_N%__hti _Sn%iW/NXmi%/mnl%v//li%SStn i)S nsv%/_0Nv/W0lv%)WvlW iW_tt _)lt v%)%tnmNW_N0mvXntv m&iNv_tWWilm/pJNNl nNN)/0)/%n/vn)Niv/ltiWSln/%+m/lW%0_)00%/Wn)iv)Wi0SvlSntlvmWHQN W)Nt/ n)tNn v))ntmS:tN__l)mN}mmEWNN_/nnim_nC/i)/nnS0m/_nN% _{nN%W/2l/0%Sm0nvv/SmnvSS%0_i)W 0x %/W)t /Witm t)v0WmiW_Nnm_)tN  SP%NW_N)mN0_mUliv_/niiS/t; N / =x%%__lN%/S0nviWSvnWviSm0tv_Wl0 %iW%0n NS_t0 v)n0v /)it%mtW/Nl /)dl%llLNNi_0/minmNs)0i%%ntiN/l*tiK_)nWi0/vl0iSSnem%)SilSit/ 0l%/SKlmvW_m0/vn/)tnvmW))W S)tt_v;WNtM v)W:Sm/>0Nm ))%N)mi:Sn/__nli _bZviW_vn/i0/mn)%v_)ml%S/Wl_t)S l0v%//n%v/Si0mv0Wv0) i/Sl_ _WNt  0)%nlmNS/Nlmm)tNvmlIit__t)_N)_ wmi%vlnNN)/0Wmi0/vn %iv/ltN%Sln i)S%lvvNvJ00vNWn0itvWil2 tW%tl  WBt% /)N0Wm0WSNnmv))Ni S2tt/_lMvNR_%YWiN Fn0N//nnii)/NnS%t/ lli_/2nm%WSNl/v0_)0n% S)00vSWt0_ lWn0Jv WWt0 /)ltmmnWlt) v)St%m_zlN m!/tNWmip/N)_mnniv_))0iS_in_i+/ n)%%/Wn%%//Nlm%tSvl)viSSl v_S00 v_W%0W NW/0_ mW0tv S)it/mt)__Nm )KN%mSHNN/_0Atin_v{)t)_Snti_/nnlis/%nW%%StnmN+/tnli0SNltvtS_0lv_WtlmiW/ tnvl/v0t vW)ti S)tt_/lvmd<mi) NNm/X0N//t)ltlmnb/N __nli /ln/N%mvoliv_Slii)_ G_%//ml_vlS 0lv_SnnNiCW)0nv%S_l_ NS/tt _)lt__iWWt0 lWS0  0Wttlm0n_ti ;)ttvSW.Yi%_WnNi//0nmlvvvnWiS/Slt%_St0ni _/nSi /_n/%tSjl)v)Wi0S i)ml/%WSt0WvvWm0)ml)NNnmv))Nv_n)%0_ iovN _%OWiN_WlvN0mSonNNW_n/i /_ll% Sll_%n_N,R v/0nS%n/NN_v/Sj0_ lW tlvnWnli _S/tmmn)vNn_/)tt  v)00)  Wmtvm &Zt _n)_tSm%}SN0_%6Ni%mvn)%n/WlN%/SNlS N/%nmm/SS0tv_Wl0 vMW%0W NW_0W m)ntvmn)_0/vlWWNnmt)=N%mW:%iW /)ttN_v+)ii_Snti_/lWnl&/%nW%N//l0%mSn0v0?SNlNvtS_0lv_SlnS%%/.tlmt)Q0s 0W)ti S)iNN  Wtt0vn)WNNm/)nW _nstN)m/OSit__)lN _dn0iW/nn/iN/mB)il/)ln%S/Wl_vlS l=%/SW0nv/Wn0mv)Wvl)v WS0D _S_t  a)%0/m0)/tWmm)nNvm)fi0Smn+_NS_ 9_i%m!nNNmvNnmi_/vYm%i/Slti /Sl % S%nSvNS/00%vS%0vv%Wil/ tW_tlv%S)t% N)Nttm0)mNnmv)nNimvZtNl_lK%Nfm%wmiN_vn0Nv/nn0i)_ini%t/%llip/1lN%W/0nmv0SN0n%/S)0ivS/tn% lWt0= lWWl) /Wnm8mn)lt)m0)SNtm_WfNNm=)pNW_lY/i0_m))it_)BWiS/nn_%l/ nG%n/Wn8%//_lm%)Svn)%vSSlCv_S_0 v_W%FWvmW/0) mWltvvm)i0Sv))_tWm )NN%m_QNtmnW-mN/_v?0ii_Sntt_tNn i_/%n %N_il0iv//lv% SilmvtS_0l%%/00%v%WN0  0WmtnviW_ti N)ttvml) tJm%WlNNm%F0Nl_n9iN)mi)?it_%nlN/_#nliW_0& %0/Nln%t/)li%S_tc%vlStldvlSWllv//0/m nW00) nWS0) _Wl0n 8)0tW l)/tWmmSnNnm).lNS_l1_tW_ )Pil_Wnni//lnmi8/vn)iS/SnG%_/5l %hS%lW%0S/00vmSX0vv)Wi0S tW_tl NSmt% W)Nt_ W)mNnmvAnNm KWt0)_l? N8_%dWiN_/S_lm_2n0i)/inS%iSNn it/0liiSSNl/v0S/t%%)Stl0%W/mlt%NS00tm/S%0nvNS i)mn)vt)mi)SNtm__ n m)IlNW_Nh/iN/S)_t_mmnNit/tn_%l/_ltimmW* vn/l1v%tS%l viSS0tvSWNtS%)Slit tW%t0 m)ntmmtWNl_ %)mt_m )oN%mPZSN0  )St_ /VWN__Snti_/tnSi0m%zlvm_Nh)i0_%tS%W/SlSvtS_0t v/mn/%lS/livvSS02v)W)ti S)iN0v_SW0)v_WS0W i#lNN_n4vN)_vn)tSmN)iiv_Nn%iW/NnW%v_0QtNW/tn vl/_nNi%S lKv%SW0Nv/W0tmNlW%0t iWStt S)i0/%pS_itvvSE0% 0W_Nvm)FiNS_tI_vltm/;i%_WnNi//0nm%n/vn)%N/ilt%_Sll_ N_znmiW/lNvv S 0vv)Wi0)viSnl_vt)iNv_t)ttvm0)mNnmmW t vWS)N__l( tWtiVWil_/a%im/nnvt)_/nS%n/_n)% _ml%i/Snl/%)Smn8vvS)0ivSSi0_v)W 0W %W/tNv/Svtm W)vt/mi)SNt  )iN m/L%Ni_N(/i0 m1/iv__nii /t:N%l_%Wl%%/ lNi/S0lmvn/ilmviS%0t%vWl0 v*SN0m NWNt0v%)ntv )Wt0%mt)0Nlmt)8N%mWDNNl_0kiinmHF)it_SYtN /lnii4_WnW%n//n0iNSnlN%)/ lSvlS_n&%NSe00vWSn0/ 0WmlnN%W)tl SW&t_vS) 0W 0)WtRm/)WNm_nkvtS_NDSNW__kSi _7n%N/_nn/i//mn/%v/)li%S/nl_%WS l v%S/0N%//)0mvWWv0_ iW ttv_WSt  S)%tSmN)/N0 vi/Nvm_Vit _t1_il   0i%_mnNiv/0-N%n_in %i/vlti Sll %9/Nl vNSi00%vWn0vv)St0l tWttlv%Wbt% W)Nl)m0)iNnmn))NtmS)t0W_l8iN9m/GWin_/dnNm/nnti)_ZnS%t/_ClNN/Hl0%WSnl/%NSmnnnvS)0lvSSO0_v0W l{vSWWtl /WNtm S)vn) %)SNnm_)_N mWC%tWmVA/NB_mO%iv_WniiS__n_i)/ nW%%/WlN%//)lmvnSvlWviSS0tv_Wl0 vrWtlN NW/t0  W/tv ))it)mvWW0lvS))NnmWxNN/_NZS%Nm%)mv/_/Y/i_/ln %l_ &tNW_%l v_W%lv%)SilSvtS_0ll7 r0iv WN0/ 0W/tiv%/S0  /W)t_ml) Nl_mWv0v %Alt)_nEvN)_vnnN% _)i%Wm V0N%m_tn%l/iln%v/)lvi%/%L/vn/8lrv%SW0% _/Sn)%NS)l v_SRt0 l)lt  k) NivWWntlvWWbtn  LNNi_t:_il__nvNWmt{vNim%nm%n/vn)%i/Slt%_Sllv%%S%lWvNSW0%%S/nn/ tSNn_v%Wm0S  WJt% ?:%0NvSSWt2 /))NimS>iN)mNW tt_v)tN/mt)_NS_Nnvi)/inS%t/_tl>mv<liiSSNl/v0S/t%%)Stl0%W/mlt%NS00tm/S%0nvNS i)mn)vt)mi)SNtm_/}n m))SNW_NL/iN_W#ttvm0llit_mUWNW/v7 %%/WlN%WW ln%i/Nn&i//in%%NSi0S%iSWlv%mSt0m%PWt0l tSNt/  )_Nlm 9lN/ %Wvtlmv)Siim)) t__/5)i_/ln %lSnnNNB_)l0%mSnlv%)SilS t /0nvlS30%vWW%Nn%/Silm%Wntt0 //St_ml) 0W0i)WNnm/)mNm_nPv0)_04SN3__oWi _vn%N/mmn/iW/mYW%v/)li%S/nl_%WS lWv%S/0N%/S/0mvSWvl  iWSttv Wnt  _)%t/mN)/N0vm))NvmmCiNv_t#0ilm%Sli%_vnNNN/0nm%n_inm%i/ilti)Sll %+/Nn/vNSt00%WWn0vv)Stlm tWltl NWKt% W)N0vm0)NNn )))NtmS)tNt_lINNq_lkWNU_/w0N0/nnti)_/nS%l/_M!iW/wll%W_Sl/v0SmnnitS)0nvSS)0_v)W lW)SWW0) /W0tmmn)v0Sm0)StSm_)lN m!u%t/m)a/N__m?niv_)niiS__n_iS/ nv%%//lNi/_)lm%SSvnWviSv0tN_/i0 v/W%lm NSNt0vmWttv _)it/mt)vNl %i_N%m KNtt_0*min v lii_vntii/lniiu_Nnl%N/il0imSnlv%)/tnivtSt0l% SA0%vWS00N 0WltnvvW)ti S)t0/ml)tt? ))WN0m/)0t%_n,tN)m)GSN)__)Miv_JnliW_)n/%0/m5nNt/)ln%S/)l_%tS xL)SSWlzv/SW0m%/Wvl)viWS01 _Wtt  _)%nW _)/t)mm)tNv S<ilSm_-_NW_ sni%mNnNN/mmnmiS/vnt%i//lt%__)l %/S%l/vNS/00vm/)0vv)Wi0/ tW_tl  Wht% W)nt/m0)mNnmi))NimSgtS0_l9 Nq_%zWiN_/n0/S/nnvi)/NnS%t/_ll% /El%%S/Sl/v0Sml?%)S)0ivSWitm%//WltvWSv0mv))ltNmn)vt)mv)hiv mWSN mbs%NW_Nz/i0 iSniv_)niiS/tn_%l/ n4%i/mlN%/S0l/i_/_xavNSt0tv_Wl0_ 0)iN0%WSllSvSS%t% v)itSmt)SNm *Witm vW N_miamin_vnn%_mi)mNN_N))%i_Wnlitm)gviWSnlv%)/tSlvtSm0lvvS:0%vW/N0i 0W tn %W)tn SWl0/ml)%trmn)WNNm/=00S_nH%N)_tMSil__)BtW_gnNiW/0n/%0/m4ni)/)lt%SSll_%SS nWiWSW0lv/S)0m nWvlSiWWS0: _W)t  E)%tW i)/Nnmm)SNvmS?itSm_B_in_ 9vi%_/nNN/mvnmiq/vnv%i/Slt%_/Sl %&S%lSvNS/00vmWn0vv)WN0i tW_tl vW)t% W)NtWm0)mNnmv))NimS#tn__n& NU_%>WiN_/n0im/nnvi)NiSS%0/ill% /o_0nS%0_FnWS l_vvS)0inmir/ l %_S  %WWtN /)0tmmnQvRa%0)SNtm_dllnmDpiNW_NX/i0_mnnlN_)ntiS/tn_%l/ nylW/Wlt%/Snlm%)SvV iSSS00v_S/0 v)W%0  NWv/m m)ntv  )it/mt)%S m )PN%mnrNN__05ml _v3Wii_/nti_/ln lS/%n/%N//l0%mSnllitSilmvtS_0lvvS?0NvWWN_W 0Wmtn vW)ti S)tl)ml) t2mN)WNNm/!0/i_nK%N)_0JSi0__=WW6_xn%iW tn/%l/mln0;/)lN%SStl_vlS l1ttSW00v/W00m nWv0)tSWSt0 _WJt  W)%lvg))/Nlmm/yNvmWJiN%_tw%W _ J}i%vSnNi_/0nm)//vnW%i/Slt%_Sln_nvS%l%vNm_00v Wn0%v)Wl/t tW_tlivW<ti W)Nntm0) NnmN))NimS9tSN_lC%N+_%?WiN_/zntW/nnNi)_)nS%t/_pcN)/7l0%W/Wl/v0Sm0niWS)0NvSS50_vxW nm%SWWtt //ltm +)vtWmi) S_m_?lN %)u%NS_N)mlN_mP4iv_/niiS/t8 0t/ nW%%//lN%/S0lm4/Svl/viSS0tv_Wll%NlW%0m NWNt0 m)ntttl)it_mt/_Nlmv){N%i_4NNi_0> in_vs)ii_Nntit/lnNic/%nW%N/nl0%lSnlt%)SilSvt/S0l%PS&0tvWWN0/ 0S0tnvWW)ti S)tt_mlWStE /)WtRm/^0Nm_n)mN)mm2SN)__nli _QZSiW_/n/i%/mn)%v/)m%%S//l_%mS l%v%SWm0v/Sm0mv/Wv0) iWSl) _Wmt  v)%tNmNS/0vmm) Nvm%PiN _tD_N _ ( i%_%nNit/0nmi_/vnW%i/%lt%tSllNWtS%l/vN__00v Wn0vH)Wi0/ tW tl  W5t%nW)Nt/m0)vNnmv))Nizp1tN__lZvNP_%wWit_/n0im/nnvi)/in%%t/_ll% m)l%%/SNl/v0Sm0nvvSm0ivmWt0m lW 0Y %SNtN v)0t mn)vt)mi)mNtmv!lN%mVGNNW_Nk_i0_vnniv_)n0iS/t+l%l/ n4%i/WlN%/S0lmvnSvlSvNSS';KXUmFwuhHsCzIyhUb='-6:NbB.pyGozW%h446.N46p6h%.yo6BhhW.b%y.y%W.6%46yh66oGz6oGG6N%BBpWobp%6ubWz6%W%b4W:N4WG4WzW6BWBbpzoNpW64bzGf%z%N4z::4zGhWooYBzBNpoo:pz6hbo44%o%:4o:64oG%WG44BoB:pGo6po6%bGyh4.Nhb.y%4.:hpGp6GyW>GGNW.GNh6BN%%y%!4y:44yGzWy4%pGb6BB:S%p%4%p44pN64hbzWNN4WB:zhhpyoypBWNpNo4Nbz%pyhy.yho.:GW.Gz.:G4{:y%y:BGbBbhgBBG5BbGN6%hb6W%<bzGy:NG.B%WobpGoX6WbbhphbzGGbGyB!opyNWGN4%zG!8yb NyN4ypNS2y:4hy:v:.yNNzB:yoB:4.:NLp%:%.G::BW:bouh6G%%W..:%.phb.ohGBGhz.z%%ob%W.:qWBWWpGow%yG66b:U.B%WpyNWpbW6Npz4ob6zWb.w%p.4Gpb4pNm8.p.4.py4_:o4pbbzpphzp..zN::h:.hhN6hh::6ozp:oo:z%y:oz6:bhz:z%B::y4B:%WIW%G:p%p6NGyJ.Wo:6yzbpyh66Gb6By.26G:6:yG*yppb:WbNpzbNhp6NyyWNWpyN6.zNNo44ZoWhzpBNWpb4zp::N.y4opohWzN6%p66%Bp:oG%6Go6%:G.h%Bp6NBo%WoN%WBWh6B7WzBB6WB.%pyNeBN4QoyW44pWV.NG4%BbWyboWpboz:po4.:44WpW^f:z4h.bh%.b4o.%hGp6o:pB%z.b%zNooWpNoz6G%%.B%o6B%GB4hBB.%GBByhB:G66%hy:.GyIp%ob%WGB6y:b.G%spWNfyyWBNy%Noy%^Rpz#BWWNBzN!Gz6h4zoNWo4:Wz.hGo%dbpy4zpo4GpNh6oG:BBh:zoz:4Bo:%GN6WGN:GGW6yo<%6obFoGNXo.G%zo:%obyXWGb>GbbJyyh6byBz4yN%obbT_bbWGGmWGb%W.N%zyb:3Gp64&pbzh:W4Gbp4pNNzy:.46pNh..Nh%:ahbNzz.:4zN:4z:6yhLBWGB.:h:..G6.bWoBNWo.Z%Nb4%p}y%zb6Wob6oE6:%G66p4b:Gob:%MbyzWbWW1bBWN4WWp4zz%N4z::4zGhWz50ppGbCpp4p.BNFz::Bo::WB4:bz::oGh:ho::poB%.oN%Wo6%zG.h%Gb%GGzWWG%C4G%6%GG6bbB6yB%6BG.d:bp=Nbo^obp44b.Wyy4W.b.z%py_kpBz{y.4.p.4ypcoop%4opWhz:Bhyp:o:.%h4.:%4.GGW.4zp.poM:phh:BoB6W%zBpGy.Noz:oyhbpG4JzG6BzWhbo%:mNWbBNWBb9WG4%W6bGzh4GWbb.zGN.We4Nzpwhz.4%z(b.W}N9p:Nppa4pzh4BpBhW.z:%o4::G4:GBW:upp:p.v6WB46hGo%No.hh.%%6yo%4bh64G:^hG.Wpyzh:yB%6yBhzpBh..46By4vbb:4hb64Wy:{ypG4Wpyz6ybWWbzo4.yzh:W4%pRhWpboB.GW?.p44N%o6Boo%6hh=..hWB%hQBWGB.yz=:4GNbWoB63h6Bb%EByyGBbW:bzW::6WGBpW4bN%NbpWWboyNN4yBb.y=byzobyWybbz44?W64.yB4yzGNNzB4bzG4:zN4Doyhzo.:hoN%ho::yoh64o:6hBp:op:46BBch.B%:oN6.G:6obz{4..6by:nzy:/Gy46By.tGyBzhG6%GByzWpBWyNGVop%4Gy6z:p.W%pzhGp:hG..4yN6hhNBhyph4y.yoo.4oy:44.:%o%:boN::%BN:%z.N%y6N%h.l%NB/%o2%%o:y%y66GyB4G.6%y%bbz%b4z%6WWN4%W6bGzh4Gz%bBzo4BzGb6z.46zBN%z:h%z6NGohhGo%NNzG:oo%:G.::..B46zW4o.W%zoh:6G%:BB.6op6%zGp%h.c:p.k6>.:%bb4%GoR%yBh%pyGWNGGIGyG^zyNz%yo%pbo66bz4ob4zBpBF6p.z6pBzbNh(BN%h%NhW6bbzpphhG.Bzp::hB.4G4.Wzo.oo.:zGGB%zb6h%o6hoz:boy6GGb:6G4:BG46WyGBb%.bGW.B#yNb.GhbhyobNp%bBW6!:zh4%ypbhzGNpyG4zy4(%p4b.yNN6phhoz%NaoWNb.B:Gy)hoo.ho.4N..hh4GhhNBhhyo4hpGyhzGG%:G%64G:a4GGWWGmhpB4%oBp%hBGWbyWEyb61hyh6:N%61p.44p.)Wp44zyNzbyph%p.h%bWzhyBz%:zhGb.4Wp.4bpo46.BhppNzz.bhW.6GW.5h..W%%.s%W6B%G6yob.4o%64yh.6%bBd%yMGW%:byhboG66N%o6:W6Z4ypI:yWBNzW6:G6Nzp.b6WNN.zNN%p&Nbyzkbp%TNpW4G.yN7oWhBz:N:z.h6zb6ooN6oz>:NG4:pBy:zG66oG64A.::G.6W4GohoBb6GGG6%by6Nb4;.G:Kpb:_0.Bh%pbz%yzX%NoIBBN4Wyb4GNb4yphsbpBo4pNWoNb4cNpzGyZzyN.zo:%oyN:4GNBz.Nbzj6WhGNphp:Noy6.h6.N%.BN%%6k%b:zob6WG%6%GoIy%9bWyBB:%:B.y6BbzobNzoB#WNN4Wp4yWzN6zoN6GdO:WGH6.4N.yohhop4hoB moN4pp.4oG44Np:46Gzh4.hhWGphz.oh4GNhp.Bh%y4hz.GeW.C%hBhmyBW%zB%!b._%4y6%zBp4hBG%Bpz%Bbh4yBNWzpBWGbGW.p6WBbbWp.%W6N4WN.GzW.pW5.BzGNyzz.6zBNbzyB%z6NPz:BGo%:zo4BBoG:yo.B6oB:NoBb%obbzop:.Wy6WGo6%Wb:dG%b6GB6bG.N%G.6.zo6bG>NpyzMGy%NNypPpyB:4yGepoW?pp4:GyB No.4opG4oo:4Boq4GGh4:p64bGohh.%46G.ho.GhzG:h..bhyyhh:.6%4yo%hBW%hy.%Wyb%yBp%oy=%bBN%ypW%yB.4Gb%Wzbz4BbGWybp46bBWbbGh%b6W^b.hGN%zzNhhBb9zG.:z.NBzWBhzGN.%z:h%GN:%p:zoo:%%N:po.:oW4:No::bWz64G%:6Wp6zGo6yWN6pGB6pz46.z%6GGpNoyhahyWN.yo_Gy%N:y.#byb:hyy_.oz44phXuop/:pG:bph4yo64opW6hpG4NGz4.p.6y.Whz.W6b.p6:.o65.bhN.p&W.yhByGhB.ND.Bo%yB4_:B.%bBb4hBp4WBy%ppGW%bWWzpBWGbyW.p6W%bWhhboWp.zz4NhW:.pzzNoz%.NzpN.zGB4zyNo%WNuo4NN%yN6z6BBzdNZ%::.oB:zWh:GobbzGhbGo6bpGz6oGhbNG46WWT6WGoN%G6V4G.NGy%+zyzNByhNNyp<ByG:4yNF:y/:zp44hy6:ppz4GpG:Npp4.py64pN4:p.6z.4h4.W6p.zho.z6N.4hhG0hz.B<%.Ghyyo%hBW%zy.%oBG%Gy:%hBG44BpWNBzebyWi6NWvZyy4%Ny4Wyb4GNb4yphqbpBo4pNWoNb48NpzGyOzo.ohp:%oyN:4G.:hbNBz.6WhGNphp:Noy6.hWBW%WBh%.6O%%:oG%.bGW:6Gz;yWyBbWG7bWyPpG6ByGN6BW66QGpgo%6foyoNzz.4bzpb6p6NhyWNWpy4%.z:4y.4YoW4NpG4Wpbhz..46pBh4pbh%Bz:.oy6zGy::BB6ypR:0BW6Bb46pGN%bGuW4BG:>ByXGyz%obWhgBh%{GpJNBb4hNz?hy64%yBz.po%6Nz4pNWWEypW_b.z%Nbo4NGM3NhzyN%hy:NhhpihN.rho6%h6Nyo4Ngz6:yo46B%%BGG:B4%4.Nyh.6WpB,WpB%%9bW%bvB%yNhWpNhG%H4%._hpWNWGpBb%B6:zzbNzy4NzpN%WNNbzpNN.WNc.44zW.1bp.hBzy:zop:4.5:bpzhBo6h..oN6.GhWGz%hBGhNooh..b%4G6W%Gy6oy%_oGbWpyzh:Bz%bB:%6BNz4ypJNNWfGyGA%NyZzp64op6Cppo4.pho4y:hyp6hybpzGy*zy:.hzb64.p.4N.Gh%.Bzy.6hGBhGGB%hN.G%o6b%y:4GGBBGG6hhB6ho66oG:m%GpBhW.bpGp6.y6bhGWbWyyt%pzb.WyNzzyb:pBNGGlcGyy<Ny.mb.%NBz6hozpNpzzh.zG64oy64zB:yob:WB%N*G.64G.4B.p:h..%bG4h4Gy6BoN6bG:6oo6Woyo6.yzW.yWxGGpVyy.khGBW.b.%pyASyp%zypWkbpGzbpyjmpBzYpb4Wp6oWps4y.%oy.WWN:%hG:%zbN:zB:yoN:hz6:4z(N6GyBWhbBGGbBpGoBGGG:o%oBWW4bW%.(GW%:bh6.:G4bG%6BNyJb%Gzd%%b{zy.VG%!N%zW4Bzyb:p:N%z4N:o4NG.WN4yp:op.7oG;:hz%q4GN:Nz6hpoWh.pp:lGB:pGB4boo49GG;ho.fh.%6%.G6:Go#4bo6BGp5oyp66bbLGGpU4yN6NypPWyozzyGW6y.W(yy4oyy=yyb44Ni4b.G4z.GW..44p.Wopp:4b.phb.ho6pNzW:.hNp6hGB%h%.6h..bG%BWG4ByGoBW%hB6WhByyzBWGBBWob6.%%6bGb_hG6ByG8+hp%byWoN%zobbppbbG:b4Whb4p%bzWW4oWybGWyN.zy:zoyN:.BNCych4p6Ny.4h4B%:yoo6%Go:bBp6zp:hbozh:.:%7Gz6%G_&%GpWoy%hBy4W.GW(WyWahy.W9GN6;G:/6Nz4hyyzyyB46bB)WbNWB.hhzp9zWp:4zyFIUp6%oph%W:%ho:4hp:%oy.B4N.z%4.4hN.yh.64G4Boz6.BG%B.GU.6%N.6h6B%%yfGW%6bG.B%Gb6by:b.WhbNyp;ByBgbzp6.yZN%WzbNzpbpzzbkzh4pppNGyGNppB4GWM4ppphBz.:yz.N.z::%Bh:GBW:<oy6%.6%4B46hGo%NGhhh.%%pBh:BBW66BN6%G_KWGbWBGVh+bbWNGb%Wbh6BbWWzbozGpo_Gpz4.p4zNpp44pbo4pN4zpAozp.4y.zhyp:oBpTWS:Bhp:<4...h..yhU6o%hNbhN:6oB.WoN:NG6Bb%hPh%zbpGz.:GG6oWbb6%Gb6olbNy4bBWhBN%Nbbo%B6o4cXz%c:zotspzNyW.Nhz:b:z.NzzG4:p:
+local ScreenGui = Instance.new("ScreenGui")
+local TopBar = Instance.new("Frame")
+local TitleLabel = Instance.new("TextLabel")
+local Sidebar = Instance.new("Frame")
+local MainContent = Instance.new("Frame")
+local BottomBar = Instance.new("Frame")
+local WelcomeLabel = Instance.new("TextLabel")
+
+local function createButton(name, parent, position)
+    local button = Instance.new("TextButton")
+    button.Name = name
+    button.Size = UDim2.new(1, 0, 0, 50)
+    button.Position = position
+    button.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    button.Text = name
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Font = Enum.Font.SourceSans
+    button.TextSize = 24
+    button.Parent = parent
+    return button
+end
+
+local function createLabel(name, parent, position, text)
+    local label = Instance.new("TextLabel")
+    label.Name = name
+    label.Size = UDim2.new(1, 0, 0, 50)
+    label.Position = position
+    label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    label.BackgroundTransparency = 1
+    label.Text = text
+    label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    label.Font = Enum.Font.SourceSans
+    label.TextSize = 24
+    label.Parent = parent
+    return label
+end
+
+local function createParagraph(name, parent, position, text)
+    local paragraph = Instance.new("TextLabel")
+    paragraph.Name = name
+    paragraph.Size = UDim2.new(1, 0, 0, 100)
+    paragraph.Position = position
+    paragraph.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    paragraph.BackgroundTransparency = 1
+    paragraph.Text = text
+    paragraph.TextColor3 = Color3.fromRGB(255, 255, 255)
+    paragraph.Font = Enum.Font.SourceSans
+    paragraph.TextSize = 18
+    paragraph.TextWrapped = true
+    paragraph.Parent = parent
+    return paragraph
+end
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+TopBar.Size = UDim2.new(1, 0, 0, 50)
+TopBar.Position = UDim2.new(0, 0, 0, 0)
+TopBar.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TopBar.Parent = ScreenGui
+
+TitleLabel.Size = UDim2.new(1, 0, 1, 0)
+TitleLabel.BackgroundTransparency = 1
+TitleLabel.Text = "ZapHub | Pet Simulator 99!"
+TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TitleLabel.Font = Enum.Font.SourceSansBold
+TitleLabel.TextSize = 24
+TitleLabel.Parent = TopBar
+
+Sidebar.Size = UDim2.new(0, 200, 1, -50)
+Sidebar.Position = UDim2.new(0, 0, 0, 50)
+Sidebar.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Sidebar.Parent = ScreenGui
+
+local buttons = {
+    "Home", "Current Event", "Webhook", "Optimization", 
+    "Auto Farm", "Egg", "Auto Quest", "Mailbox", 
+    "Main", "Automatic"
+}
+
+for i, name in ipairs(buttons) do
+    createButton(name, Sidebar, UDim2.new(0, 0, 0, (i-1) * 50))
+end
+
+MainContent.Size = UDim2.new(1, -200, 1, -50)
+MainContent.Position = UDim2.new(0, 200, 0, 50)
+MainContent.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+MainContent.Parent = ScreenGui
+
+createLabel("CreditsTitle", MainContent, UDim2.new(0, 0, 0, 0), "Credits")
+createParagraph("CreditsParagraph", MainContent, UDim2.new(0, 0, 0, 50), "The creators of ZapHub are zap.xyz and t0nit.")
+local copyDiscordButton = createButton("CopyDiscordButton", MainContent, UDim2.new(0, 0, 0, 150))
+copyDiscordButton.Text = "Copy Discord Server Invite"
+
+createLabel("PremiumTitle", MainContent, UDim2.new(0, 0, 0, 200), "ZapHub Premium")
+createParagraph("PremiumParagraph", MainContent, UDim2.new(0, 0, 0, 250), "ZapHub also has a Premium version, which is Keyless and includes extra OP features.")
+local copyPremiumButton = createButton("CopyPremiumButton", MainContent, UDim2.new(0, 0, 0, 350))
+copyPremiumButton.Text = "Copy ZapHub Premium Shop"
+
+BottomBar.Size = UDim2.new(1, 0, 0, 50)
+BottomBar.Position = UDim2.new(0, 0, 1, -50)
+BottomBar.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+BottomBar.Parent = ScreenGui
+
+WelcomeLabel.Size = UDim2.new(1, 0, 1, 0)
+WelcomeLabel.BackgroundTransparency = 1
+WelcomeLabel.Text = "Welcome, Player_XXXX"
+WelcomeLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+WelcomeLabel.Font = Enum.Font.SourceSans
+WelcomeLabel.TextSize = 24
+WelcomeLabel.Parent = BottomBar
+
+-- Add UICorner for rounded corners
+local function addUICorner(instance)
+    local uiCorner = Instance.new("UICorner")
+    uiCorner.CornerRadius = UDim.new(0, 10)
+    uiCorner.Parent = instance
+end
+
+addUICorner(TopBar)
+addUICorner(Sidebar)
+addUICorner(MainContent)
+addUICorner(BottomBar)
