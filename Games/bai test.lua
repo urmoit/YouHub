@@ -21,6 +21,42 @@ local Tabs = {
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
+local ToggleGui = Instance.new("ScreenGui")
+local Toggle = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+local IsOpen = true
+
+--Properties
+ToggleGui.Name = "Toggle Gui"
+ToggleGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ToggleGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ToggleGui.ResetOnSpawn = false
+
+UICorner.Parent = Toggle
+Toggle.Name = "Toggle"
+Toggle.Parent = ToggleGui
+Toggle.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Toggle.Position = UDim2.new(0, 0, 0.454706937, 0)--position of the toggle
+Toggle.Size = UDim2.new(0, 80, 0, 38)--size of the toggle
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "Close Gui"
+Toggle.TextColor3 = Color3.fromRGB(203, 122, 49)
+Toggle.TextSize = 19.000
+Toggle.Draggable = true
+Toggle.MouseButton1Click:Connect(function()
+    IsOpen = not IsOpen
+
+    if IsOpen then
+        Toggle.Text = "Close Gui"
+        Fluent.GUI.Enabled = true  -- Show full Fluent UI
+		print(Fluent.GUI, Fluent.GUI.ClassName)  -- Should print: Instance and "ScreenGui"
+    else
+        Toggle.Text = "Open Gui"
+        Fluent.GUI.Enabled = false -- Hide full Fluent UI
+    end
+end)
+
 local Options = Fluent.Options
 
 -- == MAIN TAB CONTENT ==
@@ -217,77 +253,6 @@ SpeedSlider:OnChanged(function(speed)
         local humanoid = character and character:FindFirstChildOfClass("Humanoid")
         if humanoid then
             humanoid.WalkSpeed = speed
-        end
-    end
-end)
-
--- Jump Power
-local JumpSlider = Tabs.Player:AddSlider("PlayerJumpValue", {
-    Title = "Jump Power",
-    Description = "Controls how high your character jumps.",
-    Min = 50,
-    Max = 300,
-    Default = 50,
-    Rounding = 0
-})
-
-Tabs.Player:AddToggle("PlayerJumpToggle", {
-    Title = "Enable Jump Power Changer",
-    Default = false
-}):OnChanged(function(enabled)
-    if enabled then
-        task.spawn(function()
-            while Options.PlayerJumpToggle.Value do
-                local character = player.Character or player.CharacterAdded:Wait()
-                local humanoid = character and character:FindFirstChildOfClass("Humanoid")
-                if humanoid then
-                    humanoid.JumpPower = Options.PlayerJumpValue.Value
-                end
-                task.wait(0.1)
-            end
-        end)
-    else
-        local character = player.Character
-        local humanoid = character and character:FindFirstChildOfClass("Humanoid")
-        if humanoid then
-            humanoid.JumpPower = 50
-        end
-    end
-end)
-
-JumpSlider:OnChanged(function(value)
-    if Options.PlayerJumpToggle.Value then
-        local character = player.Character
-        local humanoid = character and character:FindFirstChildOfClass("Humanoid")
-        if humanoid then
-            humanoid.JumpPower = value
-        end
-    end
-end)
-
--- Noclip
-Tabs.Player:AddToggle("PlayerNoclipToggle", {
-    Title = "Enable Noclip",
-    Default = false
-}):OnChanged(function(enabled)
-    if enabled then
-        task.spawn(function()
-            while Options.PlayerNoclipToggle.Value do
-                local character = player.Character or player.CharacterAdded:Wait()
-                for _, part in pairs(character:GetDescendants()) do
-                    if part:IsA("BasePart") and part.CanCollide then
-                        part.CanCollide = false
-                    end
-                end
-                task.wait(0.1)
-            end
-        end)
-    else
-        local character = player.Character
-        for _, part in pairs(character:GetDescendants()) do
-            if part:IsA("BasePart") then
-                part.CanCollide = true
-            end
         end
     end
 end)
