@@ -16,10 +16,9 @@ local Window = Fluent:CreateWindow({
 
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "info" }),
-    ESP = Window:AddTab({ Title = "ESP", Icon = "eye" }),
-    Player = Window:AddTab({ Title = "Player", Icon = "user" }),
-    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
-
+    Combat = Window:AddTab({ Title = "Combat", Icon = "target" }),
+    Movement = Window:AddTab({ Title = "Movement", Icon = "move" }),
+    Misc = Window:AddTab({ Title = "Misc", Icon = "settings" })
 }
 
 local ToggleGui = Instance.new("ScreenGui")
@@ -143,7 +142,7 @@ Tabs.Main:AddButton({
 local player = game.Players.LocalPlayer
 
 -- Walk Speed
-local SpeedSlider = Tabs.Player:AddSlider("PlayerSpeedValue", {
+local SpeedSlider = Tabs.Movement:AddSlider("PlayerSpeedValue", {
     Title = "Walk Speed",
     Description = "Controls how fast your character moves.",
     Min = 16,
@@ -152,7 +151,7 @@ local SpeedSlider = Tabs.Player:AddSlider("PlayerSpeedValue", {
     Rounding = 0
 })
 
-Tabs.Player:AddToggle("PlayerSpeedToggle", {
+Tabs.Movement:AddToggle("PlayerSpeedToggle", {
     Title = "Enable Speed Changer",
     Default = false
 }):OnChanged(function(enabled)
@@ -193,10 +192,12 @@ SaveManager:IgnoreThemeSettings()
 SaveManager:SetIgnoreIndexes({})
 InterfaceManager:SetFolder("YouHub")
 SaveManager:SetFolder("YouHub/GrowAGarden")
-InterfaceManager:BuildInterfaceSection(Tabs.Settings)
-SaveManager:BuildConfigSection(Tabs.Settings)
+InterfaceManager:BuildInterfaceSection(Tabs.Misc)
+SaveManager:BuildConfigSection(Tabs.Misc)
 
--- == ESP TAB ==
+-- == COMBAT TAB ==
+-- ESP & Tracers (with team check)
+-- (ESP code from before, but use Tabs.Combat instead of Tabs.ESP)
 local espEnabled = false
 local tracerEnabled = false
 local espObjects = {}
@@ -276,7 +277,7 @@ end
 local runService = game:GetService("RunService")
 local espConnection
 
-Tabs.ESP:AddToggle("EnableESP", { Title = "Enable ESP", Default = false })
+Tabs.Combat:AddToggle("EnableESP", { Title = "Enable ESP", Default = false })
     :OnChanged(function(val)
         espEnabled = val
         if espEnabled or tracerEnabled then
@@ -289,7 +290,7 @@ Tabs.ESP:AddToggle("EnableESP", { Title = "Enable ESP", Default = false })
         end
     end)
 
-Tabs.ESP:AddToggle("EnableTracers", { Title = "Enable Tracers", Default = false })
+Tabs.Combat:AddToggle("EnableTracers", { Title = "Enable Tracers", Default = false })
     :OnChanged(function(val)
         tracerEnabled = val
         if espEnabled or tracerEnabled then
@@ -302,12 +303,84 @@ Tabs.ESP:AddToggle("EnableTracers", { Title = "Enable Tracers", Default = false 
         end
     end)
 
--- Clean up ESP on player removal
-local function onPlayerRemoving(player)
-    removeESP(player)
-end
+game.Players.PlayerRemoving:Connect(removeESP)
 
-game.Players.PlayerRemoving:Connect(onPlayerRemoving)
+-- Aimbot
+local aimbotEnabled = false
+local aimbotFOV = 100
+local aimbotKey = Enum.UserInputType.MouseButton2
+Tabs.Combat:AddToggle("AimbotEnabled", { Title = "Enable Aimbot", Default = false }):OnChanged(function(val) aimbotEnabled = val end)
+Tabs.Combat:AddSlider("AimbotFOV", { Title = "Aimbot FOV", Min = 10, Max = 360, Default = 100, Rounding = 0 }):OnChanged(function(val) aimbotFOV = val end)
+Tabs.Combat:AddDropdown("AimbotKey", { Title = "Aimbot Key", Values = {"Right Mouse Button", "Left Mouse Button", "E", "Q"}, Default = "Right Mouse Button" }):OnChanged(function(val)
+    if val == "Right Mouse Button" then aimbotKey = Enum.UserInputType.MouseButton2
+    elseif val == "Left Mouse Button" then aimbotKey = Enum.UserInputType.MouseButton1
+    elseif val == "E" then aimbotKey = Enum.KeyCode.E
+    elseif val == "Q" then aimbotKey = Enum.KeyCode.Q end
+end)
+
+-- Expand Hitboxes
+local hitboxExpandEnabled = false
+local hitboxSize = 5
+Tabs.Combat:AddToggle("HitboxExpandEnabled", { Title = "Expand Enemy Hitboxes", Default = false }):OnChanged(function(val) hitboxExpandEnabled = val end)
+Tabs.Combat:AddSlider("HitboxSize", { Title = "Hitbox Size", Min = 2, Max = 15, Default = 5, Rounding = 1 }):OnChanged(function(val) hitboxSize = val end)
+
+-- Kill All
+Tabs.Combat:AddButton({
+    Title = "Kill All Enemies",
+    Description = "Teleports all enemies to you and kills them (if possible)",
+    Callback = function()
+        -- Kill all logic stub
+    end
+})
+
+-- == MOVEMENT TAB ==
+local infJumpEnabled = false
+local noclipEnabled = false
+local jumpPower = 50
+Tabs.Movement:AddToggle("InfJumpEnabled", { Title = "Infinite Jump", Default = false }):OnChanged(function(val) infJumpEnabled = val end)
+Tabs.Movement:AddToggle("NoclipEnabled", { Title = "Noclip", Default = false }):OnChanged(function(val) noclipEnabled = val end)
+Tabs.Movement:AddSlider("JumpPower", { Title = "Jump Power", Min = 50, Max = 200, Default = 50, Rounding = 0 }):OnChanged(function(val) jumpPower = val end)
+Tabs.Movement:AddSlider("PlayerSpeedValue", { Title = "Walk Speed", Min = 16, Max = 100, Default = 16, Rounding = 0 }):OnChanged(function(speed)
+    if Options.PlayerSpeedToggle and Options.PlayerSpeedToggle.Value then
+        local character = player.Character
+        local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.WalkSpeed = speed
+        end
+    end
+end)
+Tabs.Movement:AddToggle("PlayerSpeedToggle", { Title = "Enable Speed Changer", Default = false }):OnChanged(function(enabled)
+    if enabled then
+        task.spawn(function()
+            while Options.PlayerSpeedToggle.Value do
+                local character = player.Character or player.CharacterAdded:Wait()
+                local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+                if humanoid then
+                    humanoid.WalkSpeed = Options.PlayerSpeedValue.Value
+                end
+                task.wait(0.1)
+            end
+        end)
+    else
+        local character = player.Character
+        local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.WalkSpeed = 16
+        end
+    end
+end)
+
+-- Bunny Hop
+local bunnyHopEnabled = false
+Tabs.Movement:AddToggle("BunnyHopEnabled", { Title = "Bunny Hop", Default = false }):OnChanged(function(val) bunnyHopEnabled = val end)
+
+-- No Fall Damage
+local noFallDamageEnabled = false
+Tabs.Movement:AddToggle("NoFallDamageEnabled", { Title = "No Fall Damage", Default = false }):OnChanged(function(val) noFallDamageEnabled = val end)
+
+-- == MISC TAB ==
+local antiAFKEnabled = false
+Tabs.Misc:AddToggle("AntiAFKEnabled", { Title = "Anti-AFK", Default = false }):OnChanged(function(val) antiAFKEnabled = val end)
 
 Window:SelectTab(1)
 Fluent:Notify({
