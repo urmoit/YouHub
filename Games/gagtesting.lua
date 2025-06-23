@@ -39,9 +39,9 @@ Toggle.Name = "Toggle"
 Toggle.Parent = ToggleGui
 Toggle.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
 Toggle.Position = UDim2.new(0, 0, 0.454706937, 0)--position of the toggle
-Toggle.Size = UDim2.new(0, 80, 0, 38)--size of the toggle
+Toggle.Size = UDim2.new(0, 80, 0, 45)--size of the toggle
 Toggle.Font = Enum.Font.SourceSans
-Toggle.Text = "Close Gui"
+Toggle.Text = "Close Youhub"
 Toggle.TextColor3 = Color3.fromRGB(203, 122, 49)
 Toggle.TextSize = 19.000
 Toggle.Draggable = true
@@ -49,11 +49,11 @@ Toggle.MouseButton1Click:Connect(function()
     IsOpen = not IsOpen
 
     if IsOpen then
-        Toggle.Text = "Close Gui"
+        Toggle.Text = "Close Youhub"
         Fluent.GUI.Enabled = true  -- Show full Fluent UI
 		print(Fluent.GUI, Fluent.GUI.ClassName)  -- Should print: Instance and "ScreenGui"
     else
-        Toggle.Text = "Open Gui"
+        Toggle.Text = "Open Youhub"
         Fluent.GUI.Enabled = false -- Hide full Fluent UI
     end
 end)
@@ -207,13 +207,32 @@ Tabs.AutoFarm:AddToggle("AutoExpand", { Title = "Auto Expand", Default = false }
 -- == CRAFTING TAB ==
 local autoCraftingForExpand = false
 
-local CraftSlider = Tabs.Crafting:AddSlider("CraftDelay", {
-    Title = "Craft Delay (sec)",
-    Min = 0,
-    Max = 10,
-    Default = 1,
-    Rounding = 1
-})
+-- Individual delay sliders for each craftable material
+local CraftDelays = {
+    ["Plank"] = 1,
+    ["Brick"] = 1,
+    ["Bamboo Plank"] = 1,
+    ["Cactus Fiber"] = 1,
+    ["Iron Bar"] = 1,
+    ["Magmite"] = 1,
+    ["Magma Plank"] = 1,
+    ["Obsidian Glass"] = 1,
+    ["Mushroom Plank"] = 1
+}
+
+local CraftSliders = {}
+for material, default in pairs(CraftDelays) do
+    CraftSliders[material] = Tabs.Crafting:AddSlider("CraftDelay_"..material:gsub(" ",""), {
+        Title = material.." Craft Delay (sec)",
+        Min = 0,
+        Max = 10,
+        Default = default,
+        Rounding = 1
+    })
+    CraftSliders[material]:OnChanged(function(val)
+        CraftDelays[material] = val
+    end)
+end
 
 Tabs.Crafting:AddToggle("AutoCraftForExpand", { Title = "Auto Craft for Expands", Default = false })
     :OnChanged(function(Value)
@@ -222,35 +241,64 @@ Tabs.Crafting:AddToggle("AutoCraftForExpand", { Title = "Auto Craft for Expands"
             local player = game.Players.LocalPlayer
             local replicatedStorage = game:GetService("ReplicatedStorage")
             local plot = workspace.Plots[player.Name]
+            local lastCrafted = {}
             while autoCraftingForExpand do
                 for _,v in pairs(plot.Expand:GetChildren()) do
                     for _,material in pairs(plot.Expand[v.Name].Top.BillboardGui:GetChildren()) do
                         local function getMaxAmount(material)
                             return tonumber(string.split(material.Amount.Text, "/")[2])
                         end
+                        local now = tick()
                         if material.Name == "Plank" and plot.Land.S13.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                            replicatedStorage.Communication.Craft:FireServer(plot.Land.S13.Crafter.Attachment)
+                            if not lastCrafted["Plank"] or now - lastCrafted["Plank"] >= CraftDelays["Plank"] then
+                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S13.Crafter.Attachment)
+                                lastCrafted["Plank"] = now
+                            end
                         elseif material.Name == "Brick" and plot.Land.S24.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                            replicatedStorage.Communication.Craft:FireServer(plot.Land.S24.Crafter.Attachment)
+                            if not lastCrafted["Brick"] or now - lastCrafted["Brick"] >= CraftDelays["Brick"] then
+                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S24.Crafter.Attachment)
+                                lastCrafted["Brick"] = now
+                            end
                         elseif material.Name == "Bamboo Plank" and plot.Land.S72.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                            replicatedStorage.Communication.Craft:FireServer(plot.Land.S72.Crafter.Attachment)
+                            if not lastCrafted["Bamboo Plank"] or now - lastCrafted["Bamboo Plank"] >= CraftDelays["Bamboo Plank"] then
+                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S72.Crafter.Attachment)
+                                lastCrafted["Bamboo Plank"] = now
+                            end
                         elseif material.Name == "Cactus Fiber" and plot.Land.S54.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                            replicatedStorage.Communication.Craft:FireServer(plot.Land.S54.Crafter.Attachment)
+                            if not lastCrafted["Cactus Fiber"] or now - lastCrafted["Cactus Fiber"] >= CraftDelays["Cactus Fiber"] then
+                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S54.Crafter.Attachment)
+                                lastCrafted["Cactus Fiber"] = now
+                            end
                         elseif material.Name == "Iron Bar" and plot.Land.S23.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                            replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S23.Crafter.Attachment)
+                            if not lastCrafted["Iron Bar"] or now - lastCrafted["Iron Bar"] >= CraftDelays["Iron Bar"] then
+                                replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S23.Crafter.Attachment)
+                                lastCrafted["Iron Bar"] = now
+                            end
                         elseif material.Name == "Magmite" and plot.Land.S106.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                            replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S23.Crafter.Attachment)
-                            replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S106.Crafter.Attachment)
+                            if not lastCrafted["Magmite"] or now - lastCrafted["Magmite"] >= CraftDelays["Magmite"] then
+                                replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S23.Crafter.Attachment)
+                                replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S106.Crafter.Attachment)
+                                lastCrafted["Magmite"] = now
+                            end
                         elseif material.Name == "Magma Plank" and plot.Land.S108.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                            replicatedStorage.Communication.Craft:FireServer(plot.Land.S108.Crafter.Attachment)
+                            if not lastCrafted["Magma Plank"] or now - lastCrafted["Magma Plank"] >= CraftDelays["Magma Plank"] then
+                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S108.Crafter.Attachment)
+                                lastCrafted["Magma Plank"] = now
+                            end
                         elseif material.Name == "Obsidian Glass" and plot.Land.S134.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                            replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S134.Crafter.Attachment)
+                            if not lastCrafted["Obsidian Glass"] or now - lastCrafted["Obsidian Glass"] >= CraftDelays["Obsidian Glass"] then
+                                replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S134.Crafter.Attachment)
+                                lastCrafted["Obsidian Glass"] = now
+                            end
                         elseif material.Name == "Mushroom Plank" and plot.Land.S164.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                            replicatedStorage.Communication.Craft:FireServer(plot.Land.S164.Crafter.Attachment)
+                            if not lastCrafted["Mushroom Plank"] or now - lastCrafted["Mushroom Plank"] >= CraftDelays["Mushroom Plank"] then
+                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S164.Crafter.Attachment)
+                                lastCrafted["Mushroom Plank"] = now
+                            end
                         end
                     end
                 end
-                task.wait(Options.CraftDelay.Value)
+                task.wait(0.1)
             end
         end)
     end)
