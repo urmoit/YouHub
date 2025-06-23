@@ -18,7 +18,7 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "info" }),
     ESP = Window:AddTab({ Title = "ESP", Icon = "eye" })
     Player = Window:AddTab({ Title = "Player", Icon = "user" }),
-    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 
 }
 
