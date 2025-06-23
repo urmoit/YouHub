@@ -321,8 +321,53 @@ end)
 -- Expand Hitboxes
 local hitboxExpandEnabled = false
 local hitboxSize = 5
-Tabs.Combat:AddToggle("HitboxExpandEnabled", { Title = "Expand Enemy Hitboxes", Default = false }):OnChanged(function(val) hitboxExpandEnabled = val end)
-Tabs.Combat:AddSlider("HitboxSize", { Title = "Hitbox Size", Min = 2, Max = 15, Default = 5, Rounding = 1 }):OnChanged(function(val) hitboxSize = val end)
+local originalSizes = {}
+
+Tabs.Combat:AddToggle("HitboxExpandEnabled", { Title = "Expand Enemy Hitboxes", Default = false }):OnChanged(function(val)
+    hitboxExpandEnabled = val
+    if not hitboxExpandEnabled then
+        -- Restore original sizes
+        for player, size in pairs(originalSizes) do
+            if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                player.Character.HumanoidRootPart.Size = size
+                player.Character.HumanoidRootPart.Massless = false
+            end
+        end
+        originalSizes = {}
+    end
+end)
+
+Tabs.Combat:AddSlider("HitboxSize", { Title = "Hitbox Size", Min = 5, Max = 500, Default = 5, Rounding = 0 }):OnChanged(function(val)
+    hitboxSize = val
+end)
+
+-- Hitbox expander logic
+local function updateHitboxes()
+    local localPlayer = game.Players.LocalPlayer
+    for _,player in pairs(game.Players:GetPlayers()) do
+        if player ~= localPlayer and player.Team ~= localPlayer.Team and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local hrp = player.Character.HumanoidRootPart
+            if hitboxExpandEnabled then
+                if not originalSizes[player] then
+                    originalSizes[player] = hrp.Size
+                end
+                hrp.Size = Vector3.new(hitboxSize, hitboxSize, hitboxSize)
+                hrp.Massless = true
+            else
+                if originalSizes[player] then
+                    hrp.Size = originalSizes[player]
+                    hrp.Massless = false
+                end
+            end
+        end
+    end
+end
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    if hitboxExpandEnabled then
+        updateHitboxes()
+    end
+end)
 
 -- Kill All
 Tabs.Combat:AddButton({
