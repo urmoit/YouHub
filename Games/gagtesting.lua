@@ -83,22 +83,28 @@ Tabs.Main:AddParagraph({
 Current Features:
 - Auto Hit Resources
 - Auto Expand
-- Auto Craft Log, Brick, Magmite, Magma Plank, Obsidian Glass, Mushroom Plank
-- Each one has its own delay slider
+- Auto Craft: Log, Brick, Magmite, Magma Plank, Obsidian Glass, Mushroom Plank
+- Individual delay sliders for each craftable material
 - Player Speed Changer
+- Warning and info paragraphs for better user guidance
+- Improved toggle button UI and usability
 
 More features are on the way! Stay tuned!
 ]]
 })
 
 Tabs.Main:AddParagraph({
-    Title = "YouHub | Build an Island Changelog v1.0.1",
+    Title = "YouHub | Build an Island Changelog v1.0.1 Testing 1",
     Content = [[
 Current Features:
 - Added Crafting Tab
-- Added Auto Craft Brick, Magmite, Magma Plank, Obsidian Glass, Mushroom Plank
-- Changed Contribute to Expand
+- Added Auto Craft for: Brick, Magmite, Magma Plank, Obsidian Glass, Mushroom Plank
+- Added individual delay sliders for each craftable material
+- Added warning and important info paragraphs to Main and Crafting tabs
+- Improved toggle button UI and usability
+- Changed Contribute to Expand logic
 - Moved Crafting to Crafting Tab
+- Updated UI text and warnings for better clarity
 
 More features are on the way! Stay tuned!
 ]]
