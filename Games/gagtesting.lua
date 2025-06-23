@@ -83,7 +83,7 @@ Tabs.Main:AddParagraph({
 Current Features:
 - Auto Hit Resources
 - Auto Expand
-- Auto Craft Log
+- Auto Craft Log, Brick, Magmite, Magma Plank, Obsidian Glass, Mushroom Plank
 - Each one has its own delay slider
 - Player Speed Changer
 
@@ -234,21 +234,6 @@ For Auto Crafting to work, you need to turn ON Auto Expand in the Auto Farm tab.
 ]]
 })
 
-
-local CraftSliders = {}
-for material, default in pairs(CraftDelays) do
-    CraftSliders[material] = Tabs.Crafting:AddSlider("CraftDelay_"..material:gsub(" ",""), {
-        Title = material.." Craft Delay (sec)",
-        Min = 0,
-        Max = 10,
-        Default = default,
-        Rounding = 1
-    })
-    CraftSliders[material]:OnChanged(function(val)
-        CraftDelays[material] = val
-    end)
-end
-
 Tabs.Crafting:AddToggle("AutoCraftForExpand", { Title = "Auto Craft for Expands", Default = false })
     :OnChanged(function(Value)
         autoCraftingForExpand = Value
@@ -317,6 +302,21 @@ Tabs.Crafting:AddToggle("AutoCraftForExpand", { Title = "Auto Craft for Expands"
             end
         end)
     end)
+
+local CraftSliders = {}
+for material, default in pairs(CraftDelays) do
+    CraftSliders[material] = Tabs.Crafting:AddSlider("CraftDelay_"..material:gsub(" ",""), {
+        Title = material.." Craft Delay (sec)",
+        Min = 0,
+        Max = 10,
+        Default = default,
+        Rounding = 1
+    })
+    CraftSliders[material]:OnChanged(function(val)
+        CraftDelays[material] = val
+    end)
+end
+
 
 -- == PLAYER TAB ==
 local player = game.Players.LocalPlayer
