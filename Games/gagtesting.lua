@@ -203,32 +203,135 @@ local CraftSlider = Tabs.Crafting:AddSlider("CraftDelay", {
     Rounding = 1
 })
 
-Tabs.Crafting:AddToggle("AutoCraftItems", { Title = "Auto Craft: Log & Brick", Default = false })
-    :OnChanged(function(Value)
-        autoCraftingRunning = Value
-        task.spawn(function()
-            while autoCraftingRunning do
-                local CraftableItems = { "Log", "Brick" }
+-- New: Individual toggles for each material
+local autoCraftMaterial = {
+    Plank = false,
+    Brick = false,
+    ["Bamboo Plank"] = false,
+    ["Cactus Fiber"] = false,
+    ["Iron Bar"] = false,
+    Magmite = false,
+    ["Magma Plank"] = false,
+    ["Obsidian Glass"] = false,
+    ["Mushroom Plank"] = false
+}
 
-                for _, craft in pairs(workspace.Plots[game.Players.LocalPlayer.Name].Land:GetChildren()) do
-                    if craft:IsA("Model") then
-                        for _, vv in pairs(craft:GetChildren()) do
-                            if vv:IsA("Part") and vv.Name == "Crafter" then
-                                vv.Attachment:SetAttribute("CraftTime", 0)
-                                local currentItem = vv.Attachment:GetAttribute("Item1")
-                                if table.find(CraftableItems, currentItem) then
-                                    game:GetService("ReplicatedStorage").Communication.Craft:FireServer(vv.Attachment)
-                                end
-                            end
-                        end
-                    end
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local player = game.Players.LocalPlayer
+local plot = workspace.Plots[player.Name]
+
+local function getMaxAmount(material)
+    return tonumber(string.split(material.Amount.Text, "/")[2])
+end
+
+local function startAutoCraft(materialName, toggleKey, craftFunc)
+    Tabs.Crafting:AddToggle(toggleKey, { Title = "Auto Craft: " .. materialName, Default = false })
+        :OnChanged(function(Value)
+            autoCraftMaterial[materialName] = Value
+            task.spawn(function()
+                while autoCraftMaterial[materialName] do
+                    craftFunc()
+                    task.wait(Options.CraftDelay.Value)
                 end
-
-                task.wait(Options.CraftDelay.Value)
-            end
+            end)
         end)
-    end)
+end
 
+-- Plank
+startAutoCraft("Plank", "AutoCraftPlank", function()
+    local material = plot.Land.S13.Crafter.Attachment
+    local stock = material.Stock.Value
+    local max = getMaxAmount(material)
+    if stock < max then
+        replicatedStorage.Communication.Craft:FireServer(material)
+    end
+end)
+
+-- Brick
+startAutoCraft("Brick", "AutoCraftBrick", function()
+    local material = plot.Land.S24.Crafter.Attachment
+    local stock = material.Stock.Value
+    local max = getMaxAmount(material)
+    if stock < max then
+        replicatedStorage.Communication.Craft:FireServer(material)
+    end
+end)
+
+-- Bamboo Plank
+startAutoCraft("Bamboo Plank", "AutoCraftBambooPlank", function()
+    local material = plot.Land.S72.Crafter.Attachment
+    local stock = material.Stock.Value
+    local max = getMaxAmount(material)
+    if stock < max then
+        replicatedStorage.Communication.Craft:FireServer(material)
+    end
+end)
+
+-- Cactus Fiber
+startAutoCraft("Cactus Fiber", "AutoCraftCactusFiber", function()
+    local material = plot.Land.S54.Crafter.Attachment
+    local stock = material.Stock.Value
+    local max = getMaxAmount(material)
+    if stock < max then
+        replicatedStorage.Communication.Craft:FireServer(material)
+    end
+end)
+
+-- Iron Bar
+startAutoCraft("Iron Bar", "AutoCraftIronBar", function()
+    local material = plot.Land.S23.Crafter.Attachment
+    local stock = material.Stock.Value
+    local max = getMaxAmount(material)
+    if stock < max then
+        replicatedStorage.Communication.DoubleCraft:FireServer(material)
+    end
+end)
+
+-- Magmite
+startAutoCraft("Magmite", "AutoCraftMagmite", function()
+    local mat23 = plot.Land.S23.Crafter.Attachment
+    local mat106 = plot.Land.S106.Crafter.Attachment
+    local stock23 = mat23.Stock.Value
+    local stock106 = mat106.Stock.Value
+    local max23 = getMaxAmount(mat23)
+    local max106 = getMaxAmount(mat106)
+    if stock23 < max23 then
+        replicatedStorage.Communication.DoubleCraft:FireServer(mat23)
+    end
+    if stock106 < max106 then
+        replicatedStorage.Communication.DoubleCraft:FireServer(mat106)
+    end
+end)
+
+-- Magma Plank
+startAutoCraft("Magma Plank", "AutoCraftMagmaPlank", function()
+    local material = plot.Land.S108.Crafter.Attachment
+    local stock = material.Stock.Value
+    local max = getMaxAmount(material)
+    if stock < max then
+        replicatedStorage.Communication.Craft:FireServer(material)
+    end
+end)
+
+-- Obsidian Glass
+startAutoCraft("Obsidian Glass", "AutoCraftObsidianGlass", function()
+    local material = plot.Land.S134.Crafter.Attachment
+    local stock = material.Stock.Value
+    local max = getMaxAmount(material)
+    if stock < max then
+        replicatedStorage.Communication.DoubleCraft:FireServer(material)
+    end
+end)
+
+-- Mushroom Plank
+startAutoCraft("Mushroom Plank", "AutoCraftMushroomPlank", function()
+    local material = plot.Land.S164.Crafter.Attachment
+    local stock = material.Stock.Value
+    local max = getMaxAmount(material)
+    if stock < max then
+        replicatedStorage.Communication.Craft:FireServer(material)
+    end
+end)
 
 -- == PLAYER TAB ==
 local player = game.Players.LocalPlayer
