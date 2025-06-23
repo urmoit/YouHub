@@ -5,7 +5,7 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 
 -- Create Fluent UI window
 local Window = Fluent:CreateWindow({
-    Title = "YouHub | Build an Island v1.0.1",
+    Title = "YouHub | Build an Island v1.0.1 Testing 3",
     SubTitle = "by Chosentechies",
     TabWidth = 160,
     Size = UDim2.fromOffset(600, 500),
@@ -62,6 +62,13 @@ local Options = Fluent.Options
 
 -- == MAIN TAB CONTENT ==
 Tabs.Main:AddSection("Info")
+
+Tabs.Main:AddParagraph({
+    Title = "Testing 3 Opened",
+    Content = [[
+- Testing 3 will be open 1 day
+]]
+})
 
 Tabs.Main:AddParagraph({
     Title = "YouHub | Build an Island Functions",
