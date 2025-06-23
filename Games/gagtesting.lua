@@ -64,6 +64,13 @@ local Options = Fluent.Options
 Tabs.Main:AddSection("Info")
 
 Tabs.Main:AddParagraph({
+    Title = "⚠️ Warnings",
+    Content = [[
+- Do NOT click the close button on the header, because you won't be able to open the UI again.
+]]
+})
+
+Tabs.Main:AddParagraph({
     Title = "Testing 3 Opened",
     Content = [[
 - Testing 3 will be open 1 day
@@ -89,7 +96,7 @@ Tabs.Main:AddParagraph({
     Content = [[
 Current Features:
 - Added Crafting Tab
-- Added Auto Craft Brick
+- Added Auto Craft Brick, Magmite, Magma Plank, Obsidian Glass, Mushroom Plank
 - Changed Contribute to Expand
 - Moved Crafting to Crafting Tab
 
@@ -219,6 +226,14 @@ local CraftDelays = {
     ["Obsidian Glass"] = 1,
     ["Mushroom Plank"] = 1
 }
+
+Tabs.Crafting:AddParagraph({
+    Title = "Important!",
+    Content = [[
+For Auto Crafting to work, you need to turn ON Auto Expand in the Auto Farm tab.
+]]
+})
+
 
 local CraftSliders = {}
 for material, default in pairs(CraftDelays) do
