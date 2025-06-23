@@ -5,7 +5,7 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 
 -- Create Fluent UI window
 local Window = Fluent:CreateWindow({
-    Title = "YouHub | Build an Island v1.0.1 Testing 3",
+    Title = "YouHub | Build an Island v1.0.1 Testing 1",
     SubTitle = "by Chosentechies",
     TabWidth = 160,
     Size = UDim2.fromOffset(600, 500),
@@ -39,7 +39,7 @@ Toggle.Name = "Toggle"
 Toggle.Parent = ToggleGui
 Toggle.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
 Toggle.Position = UDim2.new(0, 0, 0.454706937, 0)--position of the toggle
-Toggle.Size = UDim2.new(0, 80, 0, 45)--size of the toggle
+Toggle.Size = UDim2.new(0, 140, 0, 45)--size of the toggle (increased width)
 Toggle.Font = Enum.Font.SourceSans
 Toggle.Text = "Close Youhub"
 Toggle.TextColor3 = Color3.fromRGB(203, 122, 49)
@@ -66,14 +66,14 @@ Tabs.Main:AddSection("Info")
 Tabs.Main:AddParagraph({
     Title = "⚠️ Warnings",
     Content = [[
-- Do NOT click the close button on the header, because you won't be able to open the UI again.
+- Important to read! The ONLY way to open and close the UI is to use the toggle button at the side/bottom. If you click the close button on the header, you won't be able to open the UI again.
 ]]
 })
 
 Tabs.Main:AddParagraph({
-    Title = "Testing 3 Opened",
+    Title = "Build an Island v1.0.1 Testing 1 Opened",
     Content = [[
-- Testing 3 will be open 1 day
+- Build an Island v1.0.1 Testing 1 will be open 1 day
 ]]
 })
 
