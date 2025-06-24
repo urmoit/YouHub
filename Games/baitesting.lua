@@ -29,14 +29,6 @@ Tabs.Settings = Tabs.SettingsSection:Tab({ Title = "Settings", Icon = "settings"
 -- Main Tab Content
 Tabs.Main:Section({ Title = "Info", TextXAlignment = "Left", TextSize = 17 })
 Tabs.Main:Paragraph({
-    Title = "⚠️ Warnings",
-    Desc = [[
-- Important to read! The ONLY way to open and close the UI is to use the toggle button at the side/bottom. If you click the close button on the header, you won't be able to open the UI again.
-    ]],
-    Color = "Red",
-    Locked = false
-})
-Tabs.Main:Paragraph({
     Title = "Build an Island v1.0.2 Testing 1 Opened",
     Desc = [[
 - Build an Island v1.0.2 Testing 1 will be open 1 day
@@ -60,7 +52,7 @@ More features are on the way! Stay tuned!
     Locked = false
 })
 Tabs.Main:Paragraph({
-    Title = "YouHub | Build an Island Changelog v1.0.2 Testing 1",
+    Title = "Changelog v1.0.2",
     Desc = [[
 Current Features:
 - Added Crafting Tab
@@ -328,12 +320,121 @@ Tabs.Player:Toggle({
     end
 })
 
--- Settings Tab (placeholder)
+-- Settings Tab (with config management)
 Tabs.Settings:Section({ Title = "Settings", TextXAlignment = "Left", TextSize = 17 })
 Tabs.Settings:Paragraph({
     Title = "Settings",
     Desc = "Settings and config will be here.",
     Locked = false
+})
+
+local HttpService = game:GetService("HttpService")
+local folderPath = "WindUI"
+makefolder(folderPath)
+
+local function SaveFile(fileName, data)
+    local filePath = folderPath .. "/" .. fileName .. ".json"
+    local jsonData = HttpService:JSONEncode(data)
+    writefile(filePath, jsonData)
+end
+
+local function LoadFile(fileName)
+    local filePath = folderPath .. "/" .. fileName .. ".json"
+    if isfile(filePath) then
+        local jsonData = readfile(filePath)
+        return HttpService:JSONDecode(jsonData)
+    end
+end
+
+local function ListFiles()
+    local files = {}
+    for _, file in ipairs(listfiles(folderPath)) do
+        local fileName = file:match("([^/]+)%.json$")
+        if fileName then
+            table.insert(files, fileName)
+        end
+    end
+    return files
+end
+
+local ToggleTransparency = Tabs.Settings:Toggle({
+    Title = "Toggle Window Transparency",
+    Callback = function(e)
+        Window:ToggleTransparency(e)
+    end,
+    Value = WindUI:GetTransparency()
+})
+
+Tabs.Settings:Section({ Title = "Save", TextXAlignment = "Left", TextSize = 17 })
+
+local fileNameInput = ""
+Tabs.Settings:Input({
+    Title = "Write File Name",
+    PlaceholderText = "Enter file name",
+    Callback = function(text)
+        fileNameInput = text
+    end
+})
+
+Tabs.Settings:Button({
+    Title = "Save File",
+    Callback = function()
+        if fileNameInput ~= "" then
+            SaveFile(fileNameInput, { Transparent = WindUI:GetTransparency(), Theme = WindUI:GetCurrentTheme() })
+        end
+    end
+})
+
+Tabs.Settings:Section({ Title = "Load", TextXAlignment = "Left", TextSize = 17 })
+
+local filesDropdown
+local files = ListFiles()
+
+filesDropdown = Tabs.Settings:Dropdown({
+    Title = "Select File",
+    Multi = false,
+    AllowNone = true,
+    Values = files,
+    Callback = function(selectedFile)
+        fileNameInput = selectedFile
+    end
+})
+
+Tabs.Settings:Button({
+    Title = "Load File",
+    Callback = function()
+        if fileNameInput ~= "" then
+            local data = LoadFile(fileNameInput)
+            if data then
+                WindUI:Notify({
+                    Title = "File Loaded",
+                    Content = "Loaded data: " .. HttpService:JSONEncode(data),
+                    Duration = 5,
+                })
+                if data.Transparent then 
+                    Window:ToggleTransparency(data.Transparent)
+                    ToggleTransparency:SetValue(data.Transparent)
+                end
+                if data.Theme then WindUI:SetTheme(data.Theme) end
+            end
+        end
+    end
+})
+
+Tabs.Settings:Button({
+    Title = "Overwrite File",
+    Callback = function()
+        if fileNameInput ~= "" then
+            SaveFile(fileNameInput, { Transparent = WindUI:GetTransparency(), Theme = WindUI:GetCurrentTheme() })
+        end
+    end
+})
+
+Tabs.Settings:Button({
+    Title = "Refresh List",
+    Callback = function()
+        filesDropdown:Refresh(ListFiles())
+    end
 })
 
 Window:SelectTab(1)
