@@ -102,16 +102,19 @@ Special Thanks to:
 -- Player Tab
 Tabs.Player:Section({ Title = "Player Controls", TextXAlignment = "Left", TextSize = 17 })
 local player = game.Players.LocalPlayer
-Tabs.Player:Slider({
+local speedToggle = false
+
+local speedSlider = Tabs.Player:Slider({
     Title = "Walk Speed",
     Step = 1,
     Value = { Min = 16, Max = 100, Default = 16 },
     Callback = function(speed)
-        if player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
+        if speedToggle and player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
             player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = speed
         end
     end
 })
+
 Tabs.Player:Toggle({
     Title = "Enable Speed Changer",
     Desc = "Toggles custom walk speed.",
@@ -119,17 +122,11 @@ Tabs.Player:Toggle({
     Type = "Checkbox",
     Default = false,
     Callback = function(enabled)
-        if enabled then
-            task.spawn(function()
-                while true do
-                    if player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
-                        player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = Tabs.Player:GetElement("Walk Speed"):GetValue()
-                    end
-                    task.wait(0.1)
-                end
-            end)
-        else
-            if player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
+        speedToggle = enabled
+        if player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
+            if enabled then
+                player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = speedSlider:GetValue()
+            else
                 player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 16
             end
         end
@@ -139,12 +136,16 @@ Tabs.Player:Toggle({
 -- Auto Farm Tab
 Tabs.Farm:Section({ Title = "Auto Farm Controls", TextXAlignment = "Left", TextSize = 17 })
 local autoFarmRunning = { Hit = false, Expand = false, Craft = false, HitDelay = 1, ExpandDelay = 1 }
-Tabs.Farm:Slider({
+
+local hitDelaySlider = Tabs.Farm:Slider({
     Title = "Hit Delay (sec)",
     Step = 1,
     Value = { Min = 0, Max = 10, Default = 1 },
-    Callback = function(val) autoFarmRunning.HitDelay = val end
+    Callback = function(val) 
+        autoFarmRunning.HitDelay = val 
+    end
 })
+
 Tabs.Farm:Toggle({
     Title = "Auto Hit Resources",
     Desc = "Automatically hits all resources on your plot.",
@@ -155,22 +156,30 @@ Tabs.Farm:Toggle({
         autoFarmRunning.Hit = Value
         if Value then
             task.spawn(function()
-                while autoFarmRunning.Hit do
-                    for _, resource in pairs(workspace.Plots[game.Players.LocalPlayer.Name].Resources:GetChildren()) do
-                        game:GetService("ReplicatedStorage").Communication.HitResource:FireServer(resource)
+                while autoFarmRunning.Hit and task.wait(autoFarmRunning.HitDelay or 1) do
+                    local plot = workspace.Plots:FindFirstChild(player.Name)
+                    if plot and plot:FindFirstChild("Resources") then
+                        for _, resource in pairs(plot.Resources:GetChildren()) do
+                            pcall(function()
+                                game:GetService("ReplicatedStorage").Communication.HitResource:FireServer(resource)
+                            end)
+                        end
                     end
-                    task.wait(autoFarmRunning.HitDelay or 1)
                 end
             end)
         end
     end
 })
-Tabs.Farm:Slider({
+
+local expandDelaySlider = Tabs.Farm:Slider({
     Title = "Expand Delay (sec)",
     Step = 1,
     Value = { Min = 0, Max = 10, Default = 1 },
-    Callback = function(val) autoFarmRunning.ExpandDelay = val end
+    Callback = function(val) 
+        autoFarmRunning.ExpandDelay = val 
+    end
 })
+
 Tabs.Farm:Toggle({
     Title = "Auto Expand",
     Desc = "Automatically contributes to all expand areas.",
@@ -181,25 +190,29 @@ Tabs.Farm:Toggle({
         autoFarmRunning.Expand = Value
         if Value then
             task.spawn(function()
-                local player = game.Players.LocalPlayer
                 local replicatedStorage = game:GetService("ReplicatedStorage")
-                local plot = workspace.Plots[player.Name]
-                while autoFarmRunning.Expand do
-                    for _,v in pairs(plot.Expand:GetChildren()) do
-                        for _,material in pairs(plot.Expand[v.Name].Top.BillboardGui:GetChildren()) do
-                            if replicatedStorage.Storage.Items:FindFirstChild(material.Name) then
-                                replicatedStorage.Communication.ContributeToExpand:FireServer(v.Name, material.Name, 1)
+                while autoFarmRunning.Expand and task.wait(autoFarmRunning.ExpandDelay or 1) do
+                    local plot = workspace.Plots:FindFirstChild(player.Name)
+                    if plot and plot:FindFirstChild("Expand") then
+                        for _,v in pairs(plot.Expand:GetChildren()) do
+                            if v:FindFirstChild("Top") and v.Top:FindFirstChild("BillboardGui") then
+                                for _,material in pairs(v.Top.BillboardGui:GetChildren()) do
+                                    if replicatedStorage.Storage.Items:FindFirstChild(material.Name) then
+                                        pcall(function()
+                                            replicatedStorage.Communication.ContributeToExpand:FireServer(v.Name, material.Name, 1)
+                                        end)
+                                    end
+                                end
                             end
                         end
                     end
-                    task.wait(autoFarmRunning.ExpandDelay or 1)
                 end
             end)
         end
     end
 })
 
-Tabs.Farm:Paragraph({ Title = "================ Coin Farm ================", TextSize = 17, Color = "Accent" })
+Tabs.Farm:Paragraph({ Title = "Coin Farm", TextSize = 17, Color = "Accent" })
 
 local coinFarmSelectedPlayers = {}
 local coinFarmEnabled = false
@@ -236,28 +249,31 @@ coinFarmDropdown = Tabs.Farm:Dropdown({
         coinFarmSelectedPlayers = option
     end
 })
+
 Tabs.Farm:Button({
     Title = "Refresh Player List",
     Callback = function()
-        if coinFarmDropdown then
-            local players = getOtherPlayers()
-            coinFarmDropdown:Refresh(players)
-            if #players == 0 then
-                WindUI:Notify({
-                    Title = "Coin Farm",
-                    Content = "No other players available to select!",
-                    Duration = 4
-                })
-            end
+        local players = getOtherPlayers()
+        coinFarmDropdown:Refresh(players)
+        if #players == 0 then
+            WindUI:Notify({
+                Title = "Coin Farm",
+                Content = "No other players available to select!",
+                Duration = 4
+            })
         end
     end
 })
-Tabs.Farm:Slider({
+
+local coinFarmDelaySlider = Tabs.Farm:Slider({
     Title = "Coin Farm Delay (sec)",
     Step = 1,
     Value = { Min = 0, Max = 10, Default = 1 },
-    Callback = function(val) coinFarmDelay = val end
+    Callback = function(val) 
+        coinFarmDelay = val 
+    end
 })
+
 Tabs.Farm:Toggle({
     Title = "Enable Coin Farm",
     Desc = "Automatically breaks resources on selected players' islands (if you are a helper).",
@@ -273,11 +289,12 @@ Tabs.Farm:Toggle({
             })
             return
         end
+        
         coinFarmEnabled = Value
         if Value then
             coinFarmLoopRunning = true
             task.spawn(function()
-                while coinFarmEnabled do
+                while coinFarmEnabled and task.wait(coinFarmDelay or 1) do
                     for _, playerName in ipairs(coinFarmSelectedPlayers) do
                         local plot = workspace.Plots:FindFirstChild(playerName)
                         if plot and plot:FindFirstChild("Resources") then
@@ -288,7 +305,6 @@ Tabs.Farm:Toggle({
                             end
                         end
                     end
-                    task.wait(coinFarmDelay or 1)
                 end
                 coinFarmLoopRunning = false
             end)
@@ -312,6 +328,7 @@ local CraftDelays = {
     ["Obsidian Glass"] = 1,
     ["Mushroom Plank"] = 1
 }
+
 Tabs.Crafting:Paragraph({
     Title = "Important!",
     Desc = [[
@@ -320,6 +337,7 @@ For Auto Crafting to work, you need to turn ON Auto Expand in the Auto Farm tab.
     Color = "Red",
     Locked = false
 })
+
 Tabs.Crafting:Toggle({
     Title = "Auto Craft for Expands",
     Desc = "Automatically crafts materials for expand areas.",
@@ -330,78 +348,150 @@ Tabs.Crafting:Toggle({
         autoCraftingForExpand = Value
         if Value then
             task.spawn(function()
-                local player = game.Players.LocalPlayer
                 local replicatedStorage = game:GetService("ReplicatedStorage")
-                local plot = workspace.Plots[player.Name]
                 local lastCrafted = {}
-                while autoCraftingForExpand do
-                    for _,v in pairs(plot.Expand:GetChildren()) do
-                        for _,material in pairs(plot.Expand[v.Name].Top.BillboardGui:GetChildren()) do
-                            local function getMaxAmount(material)
-                                return tonumber(string.split(material.Amount.Text, "/")[2])
-                            end
-                            local now = tick()
-                            if material.Name == "Plank" and plot.Land.S13.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                                if not lastCrafted["Plank"] or now - lastCrafted["Plank"] >= CraftDelays["Plank"] then
-                                    replicatedStorage.Communication.Craft:FireServer(plot.Land.S13.Crafter.Attachment)
-                                    lastCrafted["Plank"] = now
-                                end
-                            elseif material.Name == "Brick" and plot.Land.S24.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                                if not lastCrafted["Brick"] or now - lastCrafted["Brick"] >= CraftDelays["Brick"] then
-                                    replicatedStorage.Communication.Craft:FireServer(plot.Land.S24.Crafter.Attachment)
-                                    lastCrafted["Brick"] = now
-                                end
-                            elseif material.Name == "Bamboo Plank" and plot.Land.S72.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                                if not lastCrafted["Bamboo Plank"] or now - lastCrafted["Bamboo Plank"] >= CraftDelays["Bamboo Plank"] then
-                                    replicatedStorage.Communication.Craft:FireServer(plot.Land.S72.Crafter.Attachment)
-                                    lastCrafted["Bamboo Plank"] = now
-                                end
-                            elseif material.Name == "Cactus Fiber" and plot.Land.S54.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                                if not lastCrafted["Cactus Fiber"] or now - lastCrafted["Cactus Fiber"] >= CraftDelays["Cactus Fiber"] then
-                                    replicatedStorage.Communication.Craft:FireServer(plot.Land.S54.Crafter.Attachment)
-                                    lastCrafted["Cactus Fiber"] = now
-                                end
-                            elseif material.Name == "Iron Bar" and plot.Land.S23.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                                if not lastCrafted["Iron Bar"] or now - lastCrafted["Iron Bar"] >= CraftDelays["Iron Bar"] then
-                                    replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S23.Crafter.Attachment)
-                                    lastCrafted["Iron Bar"] = now
-                                end
-                            elseif material.Name == "Magmite" and plot.Land.S106.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                                if not lastCrafted["Magmite"] or now - lastCrafted["Magmite"] >= CraftDelays["Magmite"] then
-                                    replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S23.Crafter.Attachment)
-                                    replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S106.Crafter.Attachment)
-                                    lastCrafted["Magmite"] = now
-                                end
-                            elseif material.Name == "Magma Plank" and plot.Land.S108.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                                if not lastCrafted["Magma Plank"] or now - lastCrafted["Magma Plank"] >= CraftDelays["Magma Plank"] then
-                                    replicatedStorage.Communication.Craft:FireServer(plot.Land.S108.Crafter.Attachment)
-                                    lastCrafted["Magma Plank"] = now
-                                end
-                            elseif material.Name == "Obsidian Glass" and plot.Land.S134.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                                if not lastCrafted["Obsidian Glass"] or now - lastCrafted["Obsidian Glass"] >= CraftDelays["Obsidian Glass"] then
-                                    replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S134.Crafter.Attachment)
-                                    lastCrafted["Obsidian Glass"] = now
-                                end
-                            elseif material.Name == "Mushroom Plank" and plot.Land.S164.Crafter.Attachment.Stock.Value < getMaxAmount(material) then
-                                if not lastCrafted["Mushroom Plank"] or now - lastCrafted["Mushroom Plank"] >= CraftDelays["Mushroom Plank"] then
-                                    replicatedStorage.Communication.Craft:FireServer(plot.Land.S164.Crafter.Attachment)
-                                    lastCrafted["Mushroom Plank"] = now
+                
+                while autoCraftingForExpand and task.wait(0.1) do
+                    local plot = workspace.Plots:FindFirstChild(player.Name)
+                    if plot and plot:FindFirstChild("Expand") and plot:FindFirstChild("Land") then
+                        for _,v in pairs(plot.Expand:GetChildren()) do
+                            if v:FindFirstChild("Top") and v.Top:FindFirstChild("BillboardGui") then
+                                for _,material in pairs(v.Top.BillboardGui:GetChildren()) do
+                                    local function getMaxAmount(material)
+                                        local text = material.Amount.Text
+                                        local parts = string.split(text, "/")
+                                        if #parts >= 2 then
+                                            return tonumber(parts[2]) or 0
+                                        end
+                                        return 0
+                                    end
+                                    
+                                    local now = tick()
+                                    local maxAmount = getMaxAmount(material)
+                                    
+                                    if material.Name == "Plank" and plot.Land:FindFirstChild("S13") and 
+                                       plot.Land.S13:FindFirstChild("Crafter") and 
+                                       plot.Land.S13.Crafter:FindFirstChild("Attachment") and
+                                       plot.Land.S13.Crafter.Attachment:FindFirstChild("Stock") and
+                                       plot.Land.S13.Crafter.Attachment.Stock.Value < maxAmount then
+                                        if not lastCrafted["Plank"] or now - lastCrafted["Plank"] >= CraftDelays["Plank"] then
+                                            pcall(function()
+                                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S13.Crafter.Attachment)
+                                            end)
+                                            lastCrafted["Plank"] = now
+                                        end
+                                    elseif material.Name == "Brick" and plot.Land:FindFirstChild("S24") and 
+                                           plot.Land.S24:FindFirstChild("Crafter") and 
+                                           plot.Land.S24.Crafter:FindFirstChild("Attachment") and
+                                           plot.Land.S24.Crafter.Attachment:FindFirstChild("Stock") and
+                                           plot.Land.S24.Crafter.Attachment.Stock.Value < maxAmount then
+                                        if not lastCrafted["Brick"] or now - lastCrafted["Brick"] >= CraftDelays["Brick"] then
+                                            pcall(function()
+                                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S24.Crafter.Attachment)
+                                            end)
+                                            lastCrafted["Brick"] = now
+                                        end
+                                    elseif material.Name == "Bamboo Plank" and plot.Land:FindFirstChild("S72") and 
+                                               plot.Land.S72:FindFirstChild("Crafter") and 
+                                               plot.Land.S72.Crafter:FindFirstChild("Attachment") and
+                                               plot.Land.S72.Crafter.Attachment:FindFirstChild("Stock") and
+                                               plot.Land.S72.Crafter.Attachment.Stock.Value < maxAmount then
+                                        if not lastCrafted["Bamboo Plank"] or now - lastCrafted["Bamboo Plank"] >= CraftDelays["Bamboo Plank"] then
+                                            pcall(function()
+                                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S72.Crafter.Attachment)
+                                            end)
+                                            lastCrafted["Bamboo Plank"] = now
+                                        end
+                                    elseif material.Name == "Cactus Fiber" and plot.Land:FindFirstChild("S54") and 
+                                                   plot.Land.S54:FindFirstChild("Crafter") and 
+                                                   plot.Land.S54.Crafter:FindFirstChild("Attachment") and
+                                                   plot.Land.S54.Crafter.Attachment:FindFirstChild("Stock") and
+                                                   plot.Land.S54.Crafter.Attachment.Stock.Value < maxAmount then
+                                        if not lastCrafted["Cactus Fiber"] or now - lastCrafted["Cactus Fiber"] >= CraftDelays["Cactus Fiber"] then
+                                            pcall(function()
+                                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S54.Crafter.Attachment)
+                                            end)
+                                            lastCrafted["Cactus Fiber"] = now
+                                        end
+                                    elseif material.Name == "Iron Bar" and plot.Land:FindFirstChild("S23") and 
+                                                       plot.Land.S23:FindFirstChild("Crafter") and 
+                                                       plot.Land.S23.Crafter:FindFirstChild("Attachment") and
+                                                       plot.Land.S23.Crafter.Attachment:FindFirstChild("Stock") and
+                                                       plot.Land.S23.Crafter.Attachment.Stock.Value < maxAmount then
+                                        if not lastCrafted["Iron Bar"] or now - lastCrafted["Iron Bar"] >= CraftDelays["Iron Bar"] then
+                                            pcall(function()
+                                                replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S23.Crafter.Attachment)
+                                            end)
+                                            lastCrafted["Iron Bar"] = now
+                                        end
+                                    elseif material.Name == "Magmite" and plot.Land:FindFirstChild("S106") and 
+                                                           plot.Land.S106:FindFirstChild("Crafter") and 
+                                                           plot.Land.S106.Crafter:FindFirstChild("Attachment") and
+                                                           plot.Land.S106.Crafter.Attachment:FindFirstChild("Stock") and
+                                                           plot.Land.S106.Crafter.Attachment.Stock.Value < maxAmount then
+                                        if not lastCrafted["Magmite"] or now - lastCrafted["Magmite"] >= CraftDelays["Magmite"] then
+                                            pcall(function()
+                                                if plot.Land:FindFirstChild("S23") and plot.Land.S23:FindFirstChild("Crafter") and 
+                                                   plot.Land.S23.Crafter:FindFirstChild("Attachment") then
+                                                    replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S23.Crafter.Attachment)
+                                                end
+                                                replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S106.Crafter.Attachment)
+                                            end)
+                                            lastCrafted["Magmite"] = now
+                                        end
+                                    elseif material.Name == "Magma Plank" and plot.Land:FindFirstChild("S108") and 
+                                                               plot.Land.S108:FindFirstChild("Crafter") and 
+                                                               plot.Land.S108.Crafter:FindFirstChild("Attachment") and
+                                                               plot.Land.S108.Crafter.Attachment:FindFirstChild("Stock") and
+                                                               plot.Land.S108.Crafter.Attachment.Stock.Value < maxAmount then
+                                        if not lastCrafted["Magma Plank"] or now - lastCrafted["Magma Plank"] >= CraftDelays["Magma Plank"] then
+                                            pcall(function()
+                                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S108.Crafter.Attachment)
+                                            end)
+                                            lastCrafted["Magma Plank"] = now
+                                        end
+                                    elseif material.Name == "Obsidian Glass" and plot.Land:FindFirstChild("S134") and 
+                                                                   plot.Land.S134:FindFirstChild("Crafter") and 
+                                                                   plot.Land.S134.Crafter:FindFirstChild("Attachment") and
+                                                                   plot.Land.S134.Crafter.Attachment:FindFirstChild("Stock") and
+                                                                   plot.Land.S134.Crafter.Attachment.Stock.Value < maxAmount then
+                                        if not lastCrafted["Obsidian Glass"] or now - lastCrafted["Obsidian Glass"] >= CraftDelays["Obsidian Glass"] then
+                                            pcall(function()
+                                                replicatedStorage.Communication.DoubleCraft:FireServer(plot.Land.S134.Crafter.Attachment)
+                                            end)
+                                            lastCrafted["Obsidian Glass"] = now
+                                        end
+                                    elseif material.Name == "Mushroom Plank" and plot.Land:FindFirstChild("S164") and 
+                                                                       plot.Land.S164:FindFirstChild("Crafter") and 
+                                                                       plot.Land.S164.Crafter:FindFirstChild("Attachment") and
+                                                                       plot.Land.S164.Crafter.Attachment:FindFirstChild("Stock") and
+                                                                       plot.Land.S164.Crafter.Attachment.Stock.Value < maxAmount then
+                                        if not lastCrafted["Mushroom Plank"] or now - lastCrafted["Mushroom Plank"] >= CraftDelays["Mushroom Plank"] then
+                                            pcall(function()
+                                                replicatedStorage.Communication.Craft:FireServer(plot.Land.S164.Crafter.Attachment)
+                                            end)
+                                            lastCrafted["Mushroom Plank"] = now
+                                        end
+                                    end
                                 end
                             end
                         end
                     end
-                    task.wait(0.1)
                 end
             end)
         end
     end
 })
+
+-- Create sliders for each craft delay
 for material, default in pairs(CraftDelays) do
     Tabs.Crafting:Slider({
         Title = material .. " Craft Delay (sec)",
         Step = 1,
         Value = { Min = 0, Max = 10, Default = default },
-        Callback = function(val) CraftDelays[material] = val end
+        Callback = function(val) 
+            CraftDelays[material] = val 
+        end
     })
 end
 
@@ -415,7 +505,9 @@ Tabs.Settings:Paragraph({
 
 local HttpService = game:GetService("HttpService")
 local folderPath = "WindUI"
-makefolder(folderPath)
+if not isfolder(folderPath) then
+    makefolder(folderPath)
+end
 
 local function SaveFile(fileName, data)
     local filePath = folderPath .. "/" .. fileName .. ".json"
@@ -429,6 +521,7 @@ local function LoadFile(fileName)
         local jsonData = readfile(filePath)
         return HttpService:JSONDecode(jsonData)
     end
+    return nil
 end
 
 local function ListFiles()
@@ -453,7 +546,7 @@ local ToggleTransparency = Tabs.Settings:Toggle({
 Tabs.Settings:Section({ Title = "Save", TextXAlignment = "Left", TextSize = 17 })
 
 local fileNameInput = ""
-Tabs.Settings:Input({
+local fileNameInputElement = Tabs.Settings:Input({
     Title = "Write File Name",
     PlaceholderText = "Enter file name",
     Callback = function(text)
@@ -465,7 +558,32 @@ Tabs.Settings:Button({
     Title = "Save File",
     Callback = function()
         if fileNameInput ~= "" then
-            SaveFile(fileNameInput, { Transparent = WindUI:GetTransparency(), Theme = WindUI:GetCurrentTheme() })
+            SaveFile(fileNameInput, { 
+                Transparent = WindUI:GetTransparency(), 
+                Theme = WindUI:GetCurrentTheme(),
+                WalkSpeed = speedSlider:GetValue(),
+                SpeedToggle = speedToggle,
+                AutoHit = autoFarmRunning.Hit,
+                HitDelay = autoFarmRunning.HitDelay,
+                AutoExpand = autoFarmRunning.Expand,
+                ExpandDelay = autoFarmRunning.ExpandDelay,
+                CoinFarmEnabled = coinFarmEnabled,
+                CoinFarmDelay = coinFarmDelay,
+                CoinFarmPlayers = coinFarmSelectedPlayers,
+                AutoCraft = autoCraftingForExpand,
+                CraftDelays = CraftDelays
+            })
+            WindUI:Notify({
+                Title = "Settings Saved",
+                Content = "Settings saved to " .. fileNameInput .. ".json",
+                Duration = 3
+            })
+        else
+            WindUI:Notify({
+                Title = "Error",
+                Content = "Please enter a file name first",
+                Duration = 3
+            })
         end
     end
 })
@@ -482,6 +600,7 @@ filesDropdown = Tabs.Settings:Dropdown({
     Values = files,
     Callback = function(selectedFile)
         fileNameInput = selectedFile
+        fileNameInputElement:SetValue(selectedFile)
     end
 })
 
@@ -491,17 +610,78 @@ Tabs.Settings:Button({
         if fileNameInput ~= "" then
             local data = LoadFile(fileNameInput)
             if data then
-                WindUI:Notify({
-                    Title = "File Loaded",
-                    Content = "Loaded data: " .. HttpService:JSONEncode(data),
-                    Duration = 5,
-                })
-                if data.Transparent then 
+                -- Apply settings
+                if data.Transparent ~= nil then 
                     Window:ToggleTransparency(data.Transparent)
                     ToggleTransparency:SetValue(data.Transparent)
                 end
                 if data.Theme then WindUI:SetTheme(data.Theme) end
+                if data.WalkSpeed then speedSlider:SetValue(data.WalkSpeed) end
+                if data.SpeedToggle ~= nil then 
+                    Tabs.Player:GetElement("Enable Speed Changer"):SetValue(data.SpeedToggle)
+                end
+                if data.AutoHit ~= nil then 
+                    Tabs.Farm:GetElement("Auto Hit Resources"):SetValue(data.AutoHit)
+                    autoFarmRunning.Hit = data.AutoHit
+                end
+                if data.HitDelay then 
+                    hitDelaySlider:SetValue(data.HitDelay)
+                    autoFarmRunning.HitDelay = data.HitDelay
+                end
+                if data.AutoExpand ~= nil then 
+                    Tabs.Farm:GetElement("Auto Expand"):SetValue(data.AutoExpand)
+                    autoFarmRunning.Expand = data.AutoExpand
+                end
+                if data.ExpandDelay then 
+                    expandDelaySlider:SetValue(data.ExpandDelay)
+                    autoFarmRunning.ExpandDelay = data.ExpandDelay
+                end
+                if data.CoinFarmEnabled ~= nil then 
+                    Tabs.Farm:GetElement("Enable Coin Farm"):SetValue(data.CoinFarmEnabled)
+                    coinFarmEnabled = data.CoinFarmEnabled
+                end
+                if data.CoinFarmDelay then 
+                    coinFarmDelaySlider:SetValue(data.CoinFarmDelay)
+                    coinFarmDelay = data.CoinFarmDelay
+                end
+                if data.CoinFarmPlayers then 
+                    coinFarmSelectedPlayers = data.CoinFarmPlayers
+                    coinFarmDropdown:SetValue(data.CoinFarmPlayers)
+                end
+                if data.AutoCraft ~= nil then 
+                    Tabs.Crafting:GetElement("Auto Craft for Expands"):SetValue(data.AutoCraft)
+                    autoCraftingForExpand = data.AutoCraft
+                end
+                if data.CraftDelays then 
+                    for material, delay in pairs(data.CraftDelays) do
+                        if CraftDelays[material] then
+                            CraftDelays[material] = delay
+                            local slider = Tabs.Crafting:GetElement(material .. " Craft Delay (sec)")
+                            if slider then
+                                slider:SetValue(delay)
+                            end
+                        end
+                    end
+                end
+                
+                WindUI:Notify({
+                    Title = "Settings Loaded",
+                    Content = "Settings loaded from " .. fileNameInput,
+                    Duration = 3
+                })
+            else
+                WindUI:Notify({
+                    Title = "Error",
+                    Content = "Failed to load settings from " .. fileNameInput,
+                    Duration = 3
+                })
             end
+        else
+            WindUI:Notify({
+                Title = "Error",
+                Content = "Please select a file first",
+                Duration = 3
+            })
         end
     end
 })
@@ -510,7 +690,32 @@ Tabs.Settings:Button({
     Title = "Overwrite File",
     Callback = function()
         if fileNameInput ~= "" then
-            SaveFile(fileNameInput, { Transparent = WindUI:GetTransparency(), Theme = WindUI:GetCurrentTheme() })
+            SaveFile(fileNameInput, { 
+                Transparent = WindUI:GetTransparency(), 
+                Theme = WindUI:GetCurrentTheme(),
+                WalkSpeed = speedSlider:GetValue(),
+                SpeedToggle = speedToggle,
+                AutoHit = autoFarmRunning.Hit,
+                HitDelay = autoFarmRunning.HitDelay,
+                AutoExpand = autoFarmRunning.Expand,
+                ExpandDelay = autoFarmRunning.ExpandDelay,
+                CoinFarmEnabled = coinFarmEnabled,
+                CoinFarmDelay = coinFarmDelay,
+                CoinFarmPlayers = coinFarmSelectedPlayers,
+                AutoCraft = autoCraftingForExpand,
+                CraftDelays = CraftDelays
+            })
+            WindUI:Notify({
+                Title = "Settings Saved",
+                Content = "Settings overwritten in " .. fileNameInput .. ".json",
+                Duration = 3
+            })
+        else
+            WindUI:Notify({
+                Title = "Error",
+                Content = "Please select a file first",
+                Duration = 3
+            })
         end
     end
 })
@@ -518,7 +723,15 @@ Tabs.Settings:Button({
 Tabs.Settings:Button({
     Title = "Refresh List",
     Callback = function()
-        filesDropdown:Refresh(ListFiles())
+        files = ListFiles()
+        filesDropdown:Refresh(files)
+        if #files == 0 then
+            WindUI:Notify({
+                Title = "Info",
+                Content = "No saved settings files found",
+                Duration = 3
+            })
+        end
     end
 })
 
@@ -527,4 +740,4 @@ WindUI:Notify({
     Title = "YouHub | Build an Island",
     Content = "Script loaded with full WindUI integration.",
     Duration = 6
-}) 
+})
