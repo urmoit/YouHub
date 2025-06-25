@@ -22,7 +22,6 @@ Tabs.SettingsSection = Window:Section({ Title = "Settings", Opened = false })
 Tabs.Main = Tabs.MainSection:Tab({ Title = "Info", Icon = "info" })
 Tabs.Player = Tabs.MainSection:Tab({ Title = "Player", Icon = "user" })
 Tabs.Farm = Tabs.FarmSection:Tab({ Title = "Auto Farm", Icon = "leaf" })
-Tabs.Crafting = Tabs.FarmSection:Tab({ Title = "Crafting", Icon = "hammer" })
 Tabs.Settings = Tabs.SettingsSection:Tab({ Title = "Settings", Icon = "settings" })
 
 -- Main Tab Content
@@ -199,8 +198,7 @@ Tabs.Farm:Toggle({
     end
 })
 
--- Crafting Tab
-Tabs.Crafting:Section({ Title = "Crafting Controls", TextXAlignment = "Left", TextSize = 17 })
+Tabs.Farm:Section({ Title = "Crafting Controls", TextXAlignment = "Left", TextSize = 17 })
 local autoCraftingForExpand = false
 local CraftDelays = {
     ["Plank"] = 1,
@@ -213,7 +211,7 @@ local CraftDelays = {
     ["Obsidian Glass"] = 1,
     ["Mushroom Plank"] = 1
 }
-Tabs.Crafting:Paragraph({
+Tabs.Farm:Paragraph({
     Title = "Important!",
     Desc = [[
 For Auto Crafting to work, you need to turn ON Auto Expand in the Auto Farm tab.
@@ -221,7 +219,7 @@ For Auto Crafting to work, you need to turn ON Auto Expand in the Auto Farm tab.
     Color = "Red",
     Locked = false
 })
-Tabs.Crafting:Toggle({
+Tabs.Farm:Toggle({
     Title = "Auto Craft for Expands",
     Desc = "Automatically crafts materials for expand areas.",
     Icon = "hammer",
@@ -298,7 +296,7 @@ Tabs.Crafting:Toggle({
     end
 })
 for material, default in pairs(CraftDelays) do
-    Tabs.Crafting:Slider({
+    Tabs.Farm:Slider({
         Title = material .. " Craft Delay (sec)",
         Step = 1,
         Value = { Min = 0, Max = 10, Default = default },
