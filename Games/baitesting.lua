@@ -49,24 +49,6 @@ Tabs.Main:Paragraph({
     Locked = false
 })
 
-Tabs.Main:Section({ Title = "What's New in v1.0.2", TextXAlignment = "Left", TextSize = 17 })
-Tabs.Main:Paragraph({
-    Title = "Changelog v1.0.2",
-    Desc = [[
-- Added Coin Farm section: select other players (not yourself),
-info paragraph about helper requirement, and toggle to enable
-breaking resources on their islands
-- Added Coin Farm Delay slider to Coin Farm section
-- Added Coin Farm Toggle to Coin Farm section
-- Added Coin Farm Dropdown to Coin Farm section
-- Changed the library from Fluent to WindUI for cleaner look
-and better mobile support
-
-More features are on the way! Stay tuned!
-    ]],
-    Locked = false
-})
-
 Tabs.Main:Section({ Title = "Links & Community", TextXAlignment = "Left", TextSize = 17 })
 Tabs.Main:Button({
     Title = "Join our Discord",
@@ -303,6 +285,105 @@ for material, default in pairs(CraftDelays) do
         Callback = function(val) CraftDelays[material] = val end
     })
 end
+
+Tabs.Farm:Paragraph({ Title = "Coin Farm", TextSize = 17, Color = "Accent" })
+
+local coinFarmSelectedPlayers = {}
+local coinFarmEnabled = false
+local coinFarmDelay = 1
+local coinFarmDropdown
+local coinFarmLoopRunning = false
+
+local function getOtherPlayers()
+    local players = {}
+    for _, p in ipairs(game.Players:GetPlayers()) do
+        if p ~= game.Players.LocalPlayer then
+            table.insert(players, p.Name)
+        end
+    end
+    return players
+end
+
+Tabs.Farm:Paragraph({
+    Title = "Important!",
+    Desc = [[
+To break resources on another player's island, they must have made you a helper on their plot. Only players who have made you a helper will allow you to break resources on their island.
+    ]],
+    Color = "Yellow",
+    Locked = false
+})
+
+coinFarmDropdown = Tabs.Farm:Dropdown({
+    Title = "Select Players to break resources (Coin Farm)",
+    Values = getOtherPlayers(),
+    Value = {},
+    Multi = true,
+    AllowNone = true,
+    Callback = function(option)
+        coinFarmSelectedPlayers = option
+    end
+})
+Tabs.Farm:Button({
+    Title = "Refresh Player List",
+    Callback = function()
+        if coinFarmDropdown then
+            local players = getOtherPlayers()
+            coinFarmDropdown:Refresh(players)
+            if #players == 0 then
+                WindUI:Notify({
+                    Title = "Coin Farm",
+                    Content = "No other players available to select!",
+                    Duration = 4
+                })
+            end
+        end
+    end
+})
+Tabs.Farm:Slider({
+    Title = "Coin Farm Delay (sec)",
+    Step = 1,
+    Value = { Min = 0, Max = 10, Default = 1 },
+    Callback = function(val) coinFarmDelay = val end
+})
+Tabs.Farm:Toggle({
+    Title = "Enable Coin Farm",
+    Desc = "Automatically breaks resources on selected players' islands (if you are a helper).",
+    Icon = "coins",
+    Type = "Checkbox",
+    Default = false,
+    Callback = function(Value)
+        if Value and coinFarmLoopRunning then
+            WindUI:Notify({
+                Title = "Coin Farm",
+                Content = "Coin Farm is already running!",
+                Duration = 3
+            })
+            return
+        end
+        coinFarmEnabled = Value
+        if Value then
+            coinFarmLoopRunning = true
+            task.spawn(function()
+                while coinFarmEnabled do
+                    for _, playerName in ipairs(coinFarmSelectedPlayers) do
+                        local plot = workspace.Plots:FindFirstChild(playerName)
+                        if plot and plot:FindFirstChild("Resources") then
+                            for _, resource in pairs(plot.Resources:GetChildren()) do
+                                pcall(function()
+                                    game:GetService("ReplicatedStorage").Communication.HitResource:FireServer(resource)
+                                end)
+                            end
+                        end
+                    end
+                    task.wait(coinFarmDelay or 1)
+                end
+                coinFarmLoopRunning = false
+            end)
+        else
+            coinFarmLoopRunning = false
+        end
+    end
+})
 
 -- Settings Tab (with config management)
 Tabs.Settings:Section({ Title = "Settings", TextXAlignment = "Left", TextSize = 17 })
