@@ -2,10 +2,10 @@
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 local Window = WindUI:CreateWindow({
-    Title = "YouHub | Build an Island v1.0.2",
+    Title = "YouHub",
     Icon = "rbxassetid://129260712070622",
     IconThemed = true,
-    Author = "Chosentechies",
+    Author = "Build an Island v1.0.2 Testing 1",
     Folder = "YouHubIsland",
     Size = UDim2.fromOffset(600, 500),
     Transparent = true,
