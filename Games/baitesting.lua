@@ -118,6 +118,35 @@ Tabs.Player:Toggle({
 })
 
 -- Auto Farm Tab
+local autoCraftingForExpand = false
+local CraftDelays = {
+    ["Plank"] = 1,
+    ["Brick"] = 1,
+    ["Bamboo Plank"] = 1,
+    ["Cactus Fiber"] = 1,
+    ["Iron Bar"] = 1,
+    ["Magmite"] = 1,
+    ["Magma Plank"] = 1,
+    ["Obsidian Glass"] = 1,
+    ["Mushroom Plank"] = 1
+}
+
+local coinFarmSelectedPlayers = {}
+local coinFarmEnabled = false
+local coinFarmDelay = 1
+local coinFarmDropdown
+local coinFarmLoopRunning = false
+
+local function getOtherPlayers()
+    local players = {}
+    for _, p in ipairs(game.Players:GetPlayers()) do
+        if p ~= game.Players.LocalPlayer then
+            table.insert(players, p.Name)
+        end
+    end
+    return players
+end
+
 Tabs.Farm:Section({ Title = "Auto Farm Controls", TextXAlignment = "Left", TextSize = 17 })
 local autoFarmRunning = { Hit = false, Expand = false, Craft = false, HitDelay = 1, ExpandDelay = 1 }
 Tabs.Farm:Slider({
@@ -181,18 +210,6 @@ Tabs.Farm:Toggle({
 })
 
 Tabs.Farm:Section({ Title = "Crafting Controls", TextXAlignment = "Left", TextSize = 17 })
-local autoCraftingForExpand = false
-local CraftDelays = {
-    ["Plank"] = 1,
-    ["Brick"] = 1,
-    ["Bamboo Plank"] = 1,
-    ["Cactus Fiber"] = 1,
-    ["Iron Bar"] = 1,
-    ["Magmite"] = 1,
-    ["Magma Plank"] = 1,
-    ["Obsidian Glass"] = 1,
-    ["Mushroom Plank"] = 1
-}
 Tabs.Farm:Paragraph({
     Title = "Important!",
     Desc = [[
@@ -288,22 +305,6 @@ end
 
 Tabs.Farm:Paragraph({ Title = "Coin Farm", TextSize = 17, Color = "Accent" })
 
-local coinFarmSelectedPlayers = {}
-local coinFarmEnabled = false
-local coinFarmDelay = 1
-local coinFarmDropdown
-local coinFarmLoopRunning = false
-
-local function getOtherPlayers()
-    local players = {}
-    for _, p in ipairs(game.Players:GetPlayers()) do
-        if p ~= game.Players.LocalPlayer then
-            table.insert(players, p.Name)
-        end
-    end
-    return players
-end
-
 Tabs.Farm:Paragraph({
     Title = "Important!",
     Desc = [[
@@ -313,16 +314,17 @@ To break resources on another player's island, they must have made you a helper 
     Locked = false
 })
 
-coinFarmDropdown = Tabs.Farm:Dropdown({
+local Dropdown = Tabs.Farm:Dropdown({
     Title = "Select Players to break resources (Coin Farm)",
     Values = getOtherPlayers(),
     Value = {},
     Multi = true,
     AllowNone = true,
-    Callback = function(option)
+    Callback = function(option) 
         coinFarmSelectedPlayers = option
     end
 })
+
 Tabs.Farm:Button({
     Title = "Refresh Player List",
     Callback = function()
