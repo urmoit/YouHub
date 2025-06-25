@@ -199,7 +199,7 @@ Tabs.Farm:Toggle({
     end
 })
 
-Tabs.Farm:Paragraph({ Title = "Coin Farm", TextSize = 17, Color = "Accent" })
+Tabs.Farm:Paragraph({ Title = "---------------- Coin Farm ----------------", TextSize = 17, Color = "Accent" })
 
 local coinFarmSelectedPlayers = {}
 local coinFarmEnabled = false
@@ -225,7 +225,7 @@ To break resources on another player's island, they must have made you a helper 
     Locked = false
 })
 
-Tabs.Farm:Dropdown({
+coinFarmDropdown = Tabs.Farm:Dropdown({
     Title = "Select Players to break resources (Coin Farm)",
     Values = getOtherPlayers(),
     Value = {},
