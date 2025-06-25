@@ -26,48 +26,47 @@ Tabs.Crafting = Tabs.FarmSection:Tab({ Title = "Crafting", Icon = "hammer" })
 Tabs.Settings = Tabs.SettingsSection:Tab({ Title = "Settings", Icon = "settings" })
 
 -- Main Tab Content
-Tabs.Main:Section({ Title = "Info", TextXAlignment = "Left", TextSize = 17 })
+Tabs.Main:Section({ Title = "Welcome to YouHub | Build an Island!", TextXAlignment = "Center", TextSize = 20 })
 Tabs.Main:Paragraph({
-    Title = "Build an Island v1.0.2 Testing 1 Opened",
+    Title = "Welcome!",
     Desc = [[
-- Build an Island v1.0.2 Testing 1 will be open 1 day
+Thank you for using YouHub for Build an Island! This script is designed to enhance your gameplay with powerful automation and quality-of-life features. Explore the tabs for Auto Farm, Crafting, Player controls, and more.
     ]],
     Locked = false
 })
-Tabs.Main:Paragraph({
-    Title = "YouHub | Build an Island Functions",
-    Desc = [[
-Current Features:
-- Auto Hit Resources
-- Auto Expand
-- Auto Craft: Log, Brick, Magmite, Magma Plank, Obsidian Glass, Mushroom Plank
-- Individual delay sliders for each craftable material
-- Player Speed Changer
-- Warning and info paragraphs for better user guidance
-- Improved toggle button UI and usability
 
-More features are on the way! Stay tuned!
+Tabs.Main:Section({ Title = "Key Features", TextXAlignment = "Left", TextSize = 17 })
+Tabs.Main:Paragraph({
+    Title = "Main Features",
+    Desc = [[
+• Auto Hit Resources (your plot)
+• Coin Farm (break resources on other islands if helper)
+• Auto Expand (contribute to all expand areas)
+• Auto Craft (with per-material delay sliders)
+• Player Speed Changer
+• Save/Load/Overwrite UI settings
+• Modern, mobile-friendly WindUI design
     ]],
     Locked = false
 })
+
+Tabs.Main:Section({ Title = "What's New in v1.0.2", TextXAlignment = "Left", TextSize = 17 })
 Tabs.Main:Paragraph({
     Title = "Changelog v1.0.2",
     Desc = [[
-Current Features:
-- Added Crafting Tab
-- Added Auto Craft for: Brick, Magmite, Magma Plank, Obsidian Glass, Mushroom Plank
-- Added individual delay sliders for each craftable material
-- Added warning and important info paragraphs to Main and Crafting tabs
-- Improved toggle button UI and usability
-- Changed Contribute to Expand logic
-- Moved Crafting to Crafting Tab
-- Updated UI text and warnings for better clarity
+- Added Coin Farm section: select other players (not yourself), info paragraph about helper requirement, and toggle to enable breaking resources on their islands
+- Added Refresh Player List button to Coin Farm section
+- Added Coin Farm Delay slider to Coin Farm section
+- Added Coin Farm Toggle to Coin Farm section
+- Added Coin Farm Dropdown to Coin Farm section
+- Changed the library from Fluent to WindUI for cleaner look and better mobile support
 
 More features are on the way! Stay tuned!
     ]],
     Locked = false
 })
-Tabs.Main:Section({ Title = "Links", TextXAlignment = "Left", TextSize = 17 })
+
+Tabs.Main:Section({ Title = "Links & Community", TextXAlignment = "Left", TextSize = 17 })
 Tabs.Main:Button({
     Title = "Join our Discord",
     Desc = "Copies our Discord invite link to your clipboard.",
@@ -76,26 +75,6 @@ Tabs.Main:Button({
         setclipboard("https://discord.gg/p65VYjZ9k3")
     end
 })
-Tabs.Main:Section({ Title = "Credits", TextXAlignment = "Left", TextSize = 17 })
-Tabs.Main:Paragraph({
-    Title = "Credits",
-    Desc = [[
-Special Thanks to:
-- Chosentechies/Urmoit for creating YouHub.
-- Community members for support and feedback.
-    ]],
-    Locked = false
-})
-Tabs.Main:Paragraph({
-    Title = "Additional Credits",
-    Desc = [[
-- Script contributors.
-- Beta testers for providing feedback.
-- Everyone involved in the development and testing process.
-    ]],
-    Locked = false
-})
-
 Tabs.Main:Button({
     Title = "Copy WindUi Docs Link",
     Desc = "Copies WindUI Docs link to your clipboard.",
@@ -105,18 +84,58 @@ Tabs.Main:Button({
     end
 })
 
--- Auto Farm Tab
-Tabs.Farm:Section({ Title = "Auto Farm Controls", TextXAlignment = "Left", TextSize = 17 })
-Tabs.Farm:Dropdown({
-    Title = "Select Players to break resources",
-    Values = { "Category A", "Category B", "Category C" },
-    Value = { "Category A" },
-    Multi = true,
-    AllowNone = true,
-    Callback = function(option) 
-        print("Categories selected: " .. game:GetService("HttpService"):JSONEncode(option)) 
+Tabs.Main:Section({ Title = "Credits", TextXAlignment = "Left", TextSize = 17 })
+Tabs.Main:Paragraph({
+    Title = "Credits",
+    Desc = [[
+Special Thanks to:
+- Chosentechies/Urmoit for creating YouHub.
+- Community members for support and feedback.
+- Script contributors and beta testers.
+- Everyone involved in the development and testing process.
+    ]],
+    Locked = false
+})
+
+-- Player Tab
+Tabs.Player:Section({ Title = "Player Controls", TextXAlignment = "Left", TextSize = 17 })
+local player = game.Players.LocalPlayer
+Tabs.Player:Slider({
+    Title = "Walk Speed",
+    Step = 1,
+    Value = { Min = 16, Max = 100, Default = 16 },
+    Callback = function(speed)
+        if player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
+            player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = speed
+        end
     end
 })
+Tabs.Player:Toggle({
+    Title = "Enable Speed Changer",
+    Desc = "Toggles custom walk speed.",
+    Icon = "bird",
+    Type = "Checkbox",
+    Default = false,
+    Callback = function(enabled)
+        if enabled then
+            task.spawn(function()
+                while true do
+                    if player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
+                        player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = Tabs.Player:GetElement("Walk Speed"):GetValue()
+                    end
+                    task.wait(0.1)
+                end
+            end)
+        else
+            if player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
+                player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 16
+            end
+        end
+    end
+})
+
+-- Auto Farm Tab
+Tabs.Farm:Section({ Title = "Auto Farm Controls", TextXAlignment = "Left", TextSize = 17 })
 local autoFarmRunning = { Hit = false, Expand = false, Craft = false, HitDelay = 1, ExpandDelay = 1 }
 Tabs.Farm:Slider({
     Title = "Hit Delay (sec)",
@@ -182,6 +201,8 @@ Tabs.Farm:Section({ Title = "Coin Farm", TextXAlignment = "Left", TextSize = 17 
 
 local coinFarmSelectedPlayers = {}
 local coinFarmEnabled = false
+local coinFarmDelay = 1
+local coinFarmDropdown
 
 local function getOtherPlayers()
     local players = {}
@@ -193,7 +214,16 @@ local function getOtherPlayers()
     return players
 end
 
-Tabs.Farm:Dropdown({
+Tabs.Farm:Paragraph({
+    Title = "Important!",
+    Desc = [[
+To break resources on another player's island, they must have made you a helper on their plot. Only players who have made you a helper will allow you to break resources on their island.
+    ]],
+    Color = "Yellow",
+    Locked = false
+})
+
+coinFarmDropdown = Tabs.Farm:Dropdown({
     Title = "Select Players to break resources (Coin Farm)",
     Values = getOtherPlayers(),
     Value = {},
@@ -203,13 +233,17 @@ Tabs.Farm:Dropdown({
         coinFarmSelectedPlayers = option
     end
 })
-Tabs.Farm:Paragraph({
-    Title = "Important!",
-    Desc = [[
-To break resources on another player's island, they must have made you a helper on their plot. Only players who have made you a helper will allow you to break resources on their island.
-    ]],
-    Color = "Yellow",
-    Locked = false
+Tabs.Farm:Button({
+    Title = "Refresh Player List",
+    Callback = function()
+        coinFarmDropdown:Refresh(getOtherPlayers())
+    end
+})
+Tabs.Farm:Slider({
+    Title = "Coin Farm Delay (sec)",
+    Step = 1,
+    Value = { Min = 0, Max = 10, Default = 1 },
+    Callback = function(val) coinFarmDelay = val end
 })
 Tabs.Farm:Toggle({
     Title = "Enable Coin Farm",
@@ -230,7 +264,7 @@ Tabs.Farm:Toggle({
                             end
                         end
                     end
-                    task.wait(autoFarmRunning.HitDelay or 1)
+                    task.wait(coinFarmDelay or 1)
                 end
             end)
         end
@@ -343,43 +377,6 @@ for material, default in pairs(CraftDelays) do
         Callback = function(val) CraftDelays[material] = val end
     })
 end
-
--- Player Tab
-Tabs.Player:Section({ Title = "Player Controls", TextXAlignment = "Left", TextSize = 17 })
-local player = game.Players.LocalPlayer
-Tabs.Player:Slider({
-    Title = "Walk Speed",
-    Step = 1,
-    Value = { Min = 16, Max = 100, Default = 16 },
-    Callback = function(speed)
-        if player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
-            player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = speed
-        end
-    end
-})
-Tabs.Player:Toggle({
-    Title = "Enable Speed Changer",
-    Desc = "Toggles custom walk speed.",
-    Icon = "bird",
-    Type = "Checkbox",
-    Default = false,
-    Callback = function(enabled)
-        if enabled then
-            task.spawn(function()
-                while true do
-                    if player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
-                        player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = Tabs.Player:GetElement("Walk Speed"):GetValue()
-                    end
-                    task.wait(0.1)
-                end
-            end)
-        else
-            if player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
-                player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 16
-            end
-        end
-    end
-})
 
 -- Settings Tab (with config management)
 Tabs.Settings:Section({ Title = "Settings", TextXAlignment = "Left", TextSize = 17 })
