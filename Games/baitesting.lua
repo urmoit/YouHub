@@ -16,14 +16,13 @@ local Window = WindUI:CreateWindow({
 
 local Tabs = {}
 Tabs.MainSection = Window:Section({ Title = "Main", Opened = true })
-Tabs.FarmSection = Window:Section({ Title = "Auto Farm", Opened = true })
-Tabs.PlayerSection = Window:Section({ Title = "Player", Opened = true })
-Tabs.SettingsSection = Window:Section({ Title = "Settings", Opened = true })
+Tabs.FarmSection = Window:Section({ Title = "Auto", Opened = false })
+Tabs.SettingsSection = Window:Section({ Title = "Settings", Opened = false })
 
 Tabs.Main = Tabs.MainSection:Tab({ Title = "Info", Icon = "info" })
+Tabs.Player = Tabs.MainSection:Tab({ Title = "Player", Icon = "user" })
 Tabs.Farm = Tabs.FarmSection:Tab({ Title = "Auto Farm", Icon = "leaf" })
 Tabs.Crafting = Tabs.FarmSection:Tab({ Title = "Crafting", Icon = "hammer" })
-Tabs.Player = Tabs.PlayerSection:Tab({ Title = "Player", Icon = "user" })
 Tabs.Settings = Tabs.SettingsSection:Tab({ Title = "Settings", Icon = "settings" })
 
 -- Main Tab Content
@@ -68,19 +67,16 @@ More features are on the way! Stay tuned!
     ]],
     Locked = false
 })
+Tabs.Main:Section({ Title = "Links", TextXAlignment = "Left", TextSize = 17 })
 Tabs.Main:Button({
     Title = "Join our Discord",
     Desc = "Copies our Discord invite link to your clipboard.",
     Locked = false,
     Callback = function()
         setclipboard("https://discord.gg/p65VYjZ9k3")
-        WindUI:Notify({
-            Title = "Copied",
-            Content = "✅ Discord invite link copied to clipboard!",
-            Duration = 5
-        })
     end
 })
+Tabs.Main:Section({ Title = "Credits", TextXAlignment = "Left", TextSize = 17 })
 Tabs.Main:Paragraph({
     Title = "Credits",
     Desc = [[
@@ -98,23 +94,28 @@ Tabs.Main:Paragraph({
 - Everyone involved in the development and testing process.
     ]],
     Locked = false
-})
-Tabs.Main:Button({
-    Title = "Copy Fluent Docs Link",
-    Desc = "Copies Fluent UI documentation link.",
-    Locked = false,
-    Callback = function()
-        setclipboard("https://idontgiveaf.gitbook.io/fluent")
-        WindUI:Notify({
-            Title = "Copied",
-            Content = "📘 Fluent UI docs link copied!",
-            Duration = 5
-        })
-    end
+    Buttons = {
+        {
+            Title = "Copy Fluent Docs Link",
+            Callback = function() 
+                setclipboard("https://idontgiveaf.gitbook.io/fluent")
+            end,
+        }
+    }
 })
 
 -- Auto Farm Tab
 Tabs.Farm:Section({ Title = "Auto Farm Controls", TextXAlignment = "Left", TextSize = 17 })
+Tabs.Farm:Dropdown({
+    Title = "Select Players to break resources",
+    Values = { "Category A", "Category B", "Category C" },
+    Value = { "Category A" },
+    Multi = true,
+    AllowNone = true,
+    Callback = function(option) 
+        print("Categories selected: " .. game:GetService("HttpService"):JSONEncode(option)) 
+    end
+})
 local autoFarmRunning = { Hit = false, Expand = false, Craft = false, HitDelay = 1, ExpandDelay = 1 }
 Tabs.Farm:Slider({
     Title = "Hit Delay (sec)",
@@ -170,6 +171,65 @@ Tabs.Farm:Toggle({
                         end
                     end
                     task.wait(autoFarmRunning.ExpandDelay or 1)
+                end
+            end)
+        end
+    end
+})
+
+Tabs.Farm:Section({ Title = "Coin Farm", TextXAlignment = "Left", TextSize = 17 })
+
+local coinFarmSelectedPlayers = {}
+local coinFarmEnabled = false
+
+local function getOtherPlayers()
+    local players = {}
+    for _, p in ipairs(game.Players:GetPlayers()) do
+        if p ~= game.Players.LocalPlayer then
+            table.insert(players, p.Name)
+        end
+    end
+    return players
+end
+
+Tabs.Farm:Dropdown({
+    Title = "Select Players to break resources (Coin Farm)",
+    Values = getOtherPlayers(),
+    Value = {},
+    Multi = true,
+    AllowNone = true,
+    Callback = function(option)
+        coinFarmSelectedPlayers = option
+    end
+})
+Tabs.Farm:Paragraph({
+    Title = "Important!",
+    Desc = [[
+To break resources on another player's island, they must have made you a helper on their plot. Only players who have made you a helper will allow you to break resources on their island.
+    ]],
+    Color = "Yellow",
+    Locked = false
+})
+Tabs.Farm:Toggle({
+    Title = "Enable Coin Farm",
+    Desc = "Automatically breaks resources on selected players' islands (if you are a helper).",
+    Icon = "coins",
+    Type = "Checkbox",
+    Default = false,
+    Callback = function(Value)
+        coinFarmEnabled = Value
+        if Value then
+            task.spawn(function()
+                while coinFarmEnabled do
+                    for _, playerName in ipairs(coinFarmSelectedPlayers) do
+                        local plot = workspace.Plots:FindFirstChild(playerName)
+                        if plot and plot:FindFirstChild("Resources") then
+                            for _, resource in pairs(plot.Resources:GetChildren()) do
+                                game:GetService("ReplicatedStorage").Communication.HitResource:FireServer(resource)
+                            end
+                        end
+                    end
+                    task.wait(autoFarmRunning.HitDelay or 1)
                 end
             end)
         end
