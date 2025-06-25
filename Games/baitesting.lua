@@ -199,7 +199,7 @@ Tabs.Farm:Toggle({
     end
 })
 
-local coinFarmSection = Tabs.Farm:Section({ Title = "Coin Farm", TextXAlignment = "Left", TextSize = 17 })
+Tabs.Farm:Paragraph({ Title = "Coin Farm", TextSize = 17, Color = "Accent" })
 
 local coinFarmSelectedPlayers = {}
 local coinFarmEnabled = false
@@ -216,7 +216,7 @@ local function getOtherPlayers()
     return players
 end
 
-coinFarmSection:Paragraph({
+Tabs.Farm:Paragraph({
     Title = "Important!",
     Desc = [[
 To break resources on another player's island, they must have made you a helper on their plot. Only players who have made you a helper will allow you to break resources on their island.
@@ -225,7 +225,7 @@ To break resources on another player's island, they must have made you a helper 
     Locked = false
 })
 
-coinFarmDropdown = coinFarmSection:Dropdown({
+Tabs.Farm:Dropdown({
     Title = "Select Players to break resources (Coin Farm)",
     Values = getOtherPlayers(),
     Value = {},
@@ -235,19 +235,19 @@ coinFarmDropdown = coinFarmSection:Dropdown({
         coinFarmSelectedPlayers = option
     end
 })
-coinFarmSection:Button({
+Tabs.Farm:Button({
     Title = "Refresh Player List",
     Callback = function()
         coinFarmDropdown:Refresh(getOtherPlayers())
     end
 })
-coinFarmSection:Slider({
+Tabs.Farm:Slider({
     Title = "Coin Farm Delay (sec)",
     Step = 1,
     Value = { Min = 0, Max = 10, Default = 1 },
     Callback = function(val) coinFarmDelay = val end
 })
-coinFarmSection:Toggle({
+Tabs.Farm:Toggle({
     Title = "Enable Coin Farm",
     Desc = "Automatically breaks resources on selected players' islands (if you are a helper).",
     Icon = "coins",
