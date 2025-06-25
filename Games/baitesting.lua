@@ -94,14 +94,15 @@ Tabs.Main:Paragraph({
 - Everyone involved in the development and testing process.
     ]],
     Locked = false
-    Buttons = {
-        {
-            Title = "Copy Fluent Docs Link",
-            Callback = function() 
-                setclipboard("https://idontgiveaf.gitbook.io/fluent")
-            end,
-        }
-    }
+})
+
+Tabs.Main:Button({
+    Title = "Copy WindUi Docs Link",
+    Desc = "Copies WindUI Docs link to your clipboard.",
+    Locked = false,
+    Callback = function()
+        setclipboard("https://footagesus.github.io/WindUI-Docs/docs")
+    end
 })
 
 -- Auto Farm Tab
