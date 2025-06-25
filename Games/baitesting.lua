@@ -54,12 +54,14 @@ Tabs.Main:Section({ Title = "What's New in v1.0.2", TextXAlignment = "Left", Tex
 Tabs.Main:Paragraph({
     Title = "Changelog v1.0.2",
     Desc = [[
-- Added Coin Farm section: select other players (not yourself), info paragraph about helper requirement, and toggle to enable breaking resources on their islands
-- Added Refresh Player List button to Coin Farm section
+- Added Coin Farm section: select other players (not yourself),
+info paragraph about helper requirement, and toggle to enable
+breaking resources on their islands
 - Added Coin Farm Delay slider to Coin Farm section
 - Added Coin Farm Toggle to Coin Farm section
 - Added Coin Farm Dropdown to Coin Farm section
-- Changed the library from Fluent to WindUI for cleaner look and better mobile support
+- Changed the library from Fluent to WindUI for cleaner look
+and better mobile support
 
 More features are on the way! Stay tuned!
     ]],
