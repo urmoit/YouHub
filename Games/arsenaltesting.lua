@@ -5,8 +5,8 @@ local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.
 
 -- Create Fluent UI window
 local Window = Fluent:CreateWindow({
-    Title = "YouHub | Arsenal v1.0.0",
-    SubTitle = "by Chosentechies",
+    Title = "YouHub",
+    SubTitle = " Arsenal v1.0.0",
     TabWidth = 160,
     Size = UDim2.fromOffset(600, 500),
     Acrylic = true,
