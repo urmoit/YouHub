@@ -1,7 +1,7 @@
 -- Grow a Garden
 if game.PlaceId == 126884695634066 then
     -- Launch the external script
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/urmoit/YouHub/refs/heads/main/main%20uncrrypted.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/urmoit/YouHub/refs/heads/main/Games/Grow%20A%20Garden.lua"))()
 end
 
 -- BGSI
